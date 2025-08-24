@@ -171,8 +171,25 @@ label feedback:
         cl "2 STARS! Hello! They rejected my application. I didn’t get the interview…"
     else:
         cl "1 STAR! I applied but never heard back from them since :("
-    
+
+    menu:
+        "Reveal Answers":            #needs to be improved
+            "1. Correct: Dear Mrs. XYZ\n'To whom it may concern' sounds generic and outdated, which isn’t what the client wants. Using 'Dear Mrs. XYZ' sounds more personal and fits the disposition of the client better."
+
+            "2. Correct: This opportunity deeply aligns with my goals and values)\nEven though the client wants the letter to show their upbeat character, a cover letter should still be professional and formal."
+
+            "3. Correct: My experiences ALIGN with your organization’s mission.\n“Experiences” is plural, so by subject-verb agreement, “align” should be used."
+
+            "4. Correct: I LED multiple campaigns promoting composting and sustainability in urban neighborhoods.\nSince it happened in the past, “led” should be used, as the past tense of “lead”."
+
+            "5. I am familiar with local environmental regulations and HAVE hands-on experience collecting field samples and recording environmental data.\nBased on tense consistency and context, “have” is more suitable to use than “had”. Inconsistent tenses causes confusion to the client’s ability. Using “have” implies they still remember how to do it."
+
+            "6. This role complements my commitment to CONTINUOUS learning, professional growth, and taking part in impactful, on-the-ground environmental efforts.\nProper Spelling."
+
+            "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
+   
     return
+
 
 
 
