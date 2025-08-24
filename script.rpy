@@ -28,11 +28,13 @@ label logbook:
     #SCENE 3: FLASHBACK
     "Earlier that day..."
     mc "No one's knocking yet... It's been hours since I opened.."
-    mc "Did I flo"
+    mc "Did I flop?"
+    mc "sound knocking"
+    mc "!!!"
+    mc "Come in!"
 
-
-
-
-
-
- 
+    cl "Hello!!!! Are you [name]? Am I in the right place?"
+    mc "Yes, yes - that's me!"
+    mc "You're at the right tiny office with the right tiny desk."
+    mc "And you are?"
+    cl "Nice! I'm Client 1!"
