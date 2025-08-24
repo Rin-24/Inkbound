@@ -1,3 +1,5 @@
+#reminder (for later): make a label for each client for organization
+
 label start:
     #SCENE 1: MC SELF INTRO
     scene bg room             #the bedroom bg
@@ -155,6 +157,7 @@ label logbook:
     #show client 1 profile
     mc "Hmm..."
     return
+
 
 
 
