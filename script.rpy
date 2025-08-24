@@ -5,6 +5,7 @@ python:
     name = renpy.input("To start, please enter a name.")
     name = name.strip()
 define mc = Character("[name]")
+define cl = Character ("Client 1")
 
 mc "insert lore"
 
@@ -22,9 +23,16 @@ menu:
 
 #logbook
 label logbook:
-   screen text_example():
-    frame:
-        xalign 0.5 ypos 50
-        text "This is a text displayable.":
-            size 30
+    mc "Hmm..."
+
+    #SCENE 3: FLASHBACK
+    "Earlier that day..."
+    mc "No one's knocking yet... It's been hours since I opened.."
+    mc "Did I flo"
+
+
+
+
+
+
  
