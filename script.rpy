@@ -21,7 +21,7 @@ label start:
     mc "Which is why... I’m a freelance writer now!"
 
     #SCENE 2: CLIENT 1
-    scene bg office
+    scene bg office        #purely for transition
     "The next day!"
 
     scene bg room
@@ -133,3 +133,4 @@ label logbook:
     #show client 1 profile
     mc "Hmm..."
     return
+
