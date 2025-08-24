@@ -61,16 +61,18 @@ label start:
     mc "Okay! Let's start!"
 
     #1
-    mc "Since this is a cover letter, what appropriate greeting should be used…"
     menu:
+        mc "Since this is a cover letter, what appropriate greeting should be used…"
+
         "Dear Mrs. XYZ,":
             $ score += 1
         "To whom it may concern":
             pass
     
    #2
-    mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
     menu:
+        mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
+
         "This job looks super cool and I think I’d vibe well with the team":
             pass
         "This opportunity deeply aligns with my goals and values":
@@ -78,26 +80,28 @@ label start:
 
     #3
     mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
-    "My experiences (align/aligns) with your organization’s mission."
     menu:
+        mc "My experiences (align/aligns) with your organization’s mission."
+
         "align":           
             $ score += 1
         "aligns":
             pass
 
     #4
-    mc "How should I phrase their volunteer works…"
-    "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+    mc "Then how should I phrase their volunteer works…"
     menu:
+        mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+        
         "lead":
             pass
         "led":
             $ score += 1
 
     #5
-    mc "More about their skills and edge…"
-    "I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
     menu:
+        mc "More about their skills and edge… Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
+
         "had":
             pass
         "have":
@@ -105,8 +109,9 @@ label start:
 
     #6
     mc "I want to mention how much the client is willing to grow too.."
-    "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
     menu:
+        mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
+    
         "continuous":
             $ score += 1
         "continuos":
@@ -114,8 +119,9 @@ label start:
 
     #7
     mc "…Almost done! Let’s wrap this up with intent and clarity."
-    "I hope to contribute meaningfully (to/with) your mission and values."
     menu:
+        mc "I hope to contribute meaningfully (to/with) your mission and values."
+
         "to":
             $ score += 1
         "with":
@@ -133,4 +139,5 @@ label logbook:
     #show client 1 profile
     mc "Hmm..."
     return
+
 
