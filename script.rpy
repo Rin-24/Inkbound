@@ -50,7 +50,23 @@ label start:
     mc "Nice to meet you, Kadita."
     mc "Please have a seat. How can I help you?"
     cl "Okay. Soooo, this is kind of last minute… but I really need help writing a cover letter."
-    # ... continue dialogue here
+    mc "Sure! Are you applying for a job?"
+    cl "Yep. I want to apply as an Assistant to an Environmental Specialist in this Organization."
+    mc "Ooh, interesting!"
+    mc "Alright, a few quick questions first so you get the kind of letter you need."
+    mc "Who’s the letter addressed to?"
+    cl "It says Mrs. XYZ in the poster of the regional environmental office. I can send you the details later!"
+    mc "Noted. What kind of tone do you want to go for? Formal and strictly professional? Or something more warm and personal?"
+    cl "The latter please! Still professional, of course, but I want them to see I’m genuine and not robotic."
+    mc "Haha got it!"
+    mc "And for the last one: What exactly do you want this letter to do? Get you in the door? Show off your passion? Highlight your background?"
+    cl "Well, all of that! If it’s not much trouble hehe"
+    cl "But mostly— I want to secure the interview. I want them to read the letter and not hesitate to contact me. If they talk to me, I know I can convince them!"
+    mc "Woah, so confident. I like your energy!"
+    cl "Hehe, thank you! Here’s the rest of my details and background that I feel is necessary to add by the way."
+    mc "Don’t worry, I will get this letter back right away after I finish it. Hope you get the interview!"
+    cl "Ah you’re such a life saver. I’m kind of busy with my other papers so I need all the help that I can get right now. I’m counting on you!"
+
 
     #SCENE 4: LETTER
     scene bg room
@@ -139,5 +155,6 @@ label logbook:
     #show client 1 profile
     mc "Hmm..."
     return
+
 
 
