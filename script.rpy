@@ -148,15 +148,32 @@ label start:
     mc "Wooh! I did it! My first ever commission! I hope it passes the standard of the client!"
     mc "total count: [score]"        #not final pero tama to
 
-    #add feedback / scoring system
-    
+    #feedback / scoring system
+    menu:
+        "Send the Letter to Client 1 ":
+            call feedback        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+
     return
 
-#logbook
 label logbook:
     #show client 1 profile
     mc "Hmm..."
     return
+
+label feedback:
+    if score == 7:
+        cl "5 STARS! OMG! Thank you so much! Not only did I pass the interview but I also got the job!!"
+    elif score >= 5:
+        cl "4 STARS! It’s not perfect but I still got the interview and the job! ;)"
+    elif score >= 3:
+        cl "3 STARS! Hello! Someone else had their interview before mine and ended up getting the job :("
+    elif score == 2:
+        cl "2 STARS! Hello! They rejected my application. I didn’t get the interview…"
+    else:
+        cl "1 STAR! I applied but never heard back from them since :("
+    
+    return
+
 
 
 
