@@ -49,6 +49,7 @@ label start:
     mc "You're at the right tiny office with the right tiny desk." 
     mc "And you are?"
     cl "Nice! I’m Kadita!"
+    define cl = Character("Kadita")
     mc "Nice to meet you, Kadita."
     mc "Please have a seat. How can I help you?"
     cl "Okay. Soooo, this is kind of last minute… but I really need help writing a cover letter."
