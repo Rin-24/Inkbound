@@ -1,4 +1,29 @@
 #reminder (for later): make a label for each client for organization
+image journal_anim:
+    "book f1.png"
+    0.1
+    "book f2.png"
+    0.1
+    "book f3.png"
+    0.1
+    "book f4.png"
+    0.1
+    "book f5.png"
+    0.1
+    "book f6.png"
+    0.1
+    "book f7.png"
+    0.1
+    "book f8.png"
+    0.1
+    "book f9.png"
+    0.1
+    "book f10.png"
+    0.1
+    "book f11.png"
+    0.1
+    "book f12.png"
+    5
 
 label start:
     #SCENE 1: MC SELF INTRO
@@ -6,13 +31,14 @@ label start:
 
     $ name = renpy.input("To start, please enter a name.")
     $ name = name.strip()
+    $ name_cl = "Client 1"
 
      #in the case they dont write a name
     if not name:         
         $ name = "Ash"
 
     define mc = Character("[name]")
-    define cl = Character ("Client 1")
+    define cl = Character ("[name_cl]")
     
     mc "Why does one write?"
     mc "I suppose everyone has a different answer."
@@ -33,6 +59,8 @@ label start:
     #click logbook choice
     menu:
         "Open logbook":
+        show journal_anim at truecenter
+        hide journal_anim
             call logbook        #using call here para makabalik to this point once it reaches the return statement sa logbook 
 
     #SCENE 3: FLASHBACK
@@ -49,7 +77,7 @@ label start:
     mc "You're at the right tiny office with the right tiny desk." 
     mc "And you are?"
     cl "Nice! I’m Kadita!"
-    define cl = Character("Kadita")
+    $ name_cl = "Kadita" #change client name to kadita
     mc "Nice to meet you, Kadita."
     mc "Please have a seat. How can I help you?"
     cl "Okay. Soooo, this is kind of last minute… but I really need help writing a cover letter."
