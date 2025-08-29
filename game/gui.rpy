@@ -25,7 +25,7 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#99ccff'
+define gui.accent_color = '#7b5250'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#888888'
@@ -50,8 +50,8 @@ define gui.muted_color = '#3d5166'
 define gui.hover_muted_color = '#5b7a99'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
+define gui.text_color = '#7b5250'
+define gui.interface_text_color = '#7b5250'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -478,3 +478,4 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
