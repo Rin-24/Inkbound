@@ -24,6 +24,14 @@ image journal_anim:
     0.1
     "book f12.png"
     5
+default score = 0
+#score display
+screen score_display():
+    frame: 
+        align(0.95,0.05) #top-right
+        hbox:
+            add "star.png"
+            text "[score]" size 28 color "#fff"
 
 label start:
     #SCENE 1: MC SELF INTRO
@@ -69,8 +77,8 @@ label start:
     mc "Did I flop?..."
     mc "!!!"                     #audio here
     mc "Come in!"
-    show kadita pic
-    with fade
+   # show kadita pic
+   # with fade
     cl "Hello!!!! Are you [name]? Am I in the right place?"
     mc "Yes, yes— that’s me!" 
     mc "You're at the right tiny office with the right tiny desk." 
@@ -102,7 +110,7 @@ label start:
     scene bg room
     "Back to present time..."
 
-    default score = 0
+   
 
     mc "Okay! Let's start!"
 
