@@ -20,15 +20,19 @@ label start:
     mc "It’s because writing feels like reaching out your hand."
     mc "Both to ask for help and to offer help to others."
     mc "To make an impact, big or small, by doing what I love— That is my goal."
+    show mc base center
     mc "Which is why... I’m a freelance writer now!"
+    hide mc base center
 
     #SCENE 2: CLIENT 1
     scene bg office        #purely for transition
     "The next day!"
 
     scene bg room
+    show mc base center
     mc "My first day! My first ever client!!"
     mc "Now, let's see..."
+    hide mc base center
 
     #click logbook choice
     menu:
@@ -38,37 +42,91 @@ label start:
     #SCENE 3: FLASHBACK
     scene bg office
     "Earlier that day!"
-    
+
+    show mc base center
     mc "No one’s knocking yet… It’s been hours since I opened…"
     mc "Did I flop?..."
     mc "!!!"                     #audio here
     mc "Come in!"
+    hide mc base center
 
+    show cl base center
     cl "Hello!!!! Are you [name]? Am I in the right place?"
+    hide cl base center
+
+    show mc base center
     mc "Yes, yes— that’s me!" 
     mc "You're at the right tiny office with the right tiny desk." 
     mc "And you are?"
+    hide mc base center
+
+    show cl base center
     cl "Nice! I’m Kadita!"
+    hide cl base center
+
+    show mc base center
     mc "Nice to meet you, Kadita."
+    hide mc base center
+
+    show mc base left
     mc "Please have a seat. How can I help you?"
+    hide mc base left
+
+    show cl base right
     cl "Okay. Soooo, this is kind of last minute… but I really need help writing a cover letter."
+    hide cl base right
+
+    show mc base left
     mc "Sure! Are you applying for a job?"
+    hide mc base left
+
+    show cl base right
     cl "Yep. I want to apply as an Assistant to an Environmental Specialist in this Organization."
+    hide cl base right
+
+    show mc base left
     mc "Ooh, interesting!"
     mc "Alright, a few quick questions first so you get the kind of letter you need."
     mc "Who’s the letter addressed to?"
+    hide mc base left
+
+    show cl base right
     cl "It says Mrs. XYZ in the poster of the regional environmental office. I can send you the details later!"
+    hide cl base right
+
+    show mc base left
     mc "Noted. What kind of tone do you want to go for? Formal and strictly professional? Or something more warm and personal?"
+    hide mc base left
+
+    show cl base right
     cl "The latter please! Still professional, of course, but I want them to see I’m genuine and not robotic."
+    hide cl base right
+
+    show mc base left
     mc "Haha got it!"
     mc "And for the last one: What exactly do you want this letter to do? Get you in the door? Show off your passion? Highlight your background?"
+    hide mc base left
+
+    show cl base right
     cl "Well, all of that! If it’s not much trouble hehe"
     cl "But mostly— I want to secure the interview. I want them to read the letter and not hesitate to contact me. If they talk to me, I know I can convince them!"
-    mc "Woah, so confident. I like your energy!"
-    cl "Hehe, thank you! Here’s the rest of my details and background that I feel is necessary to add by the way."
-    mc "Don’t worry, I will get this letter back right away after I finish it. Hope you get the interview!"
-    cl "Ah you’re such a life saver. I’m kind of busy with my other papers so I need all the help that I can get right now. I’m counting on you!"
+    hide cl base right
 
+    show mc base left
+    mc "Woah, so confident. I like your energy!"
+    hide mc base left
+
+    show cl base right
+    cl "Hehe, thank you! Here’s the rest of my details and background that I feel is necessary to add by the way."
+    hide cl base right
+
+    show mc base center
+    mc "Don’t worry, I will get this letter back right away after I finish it. Hope you get the interview!"
+    hide mc base center
+
+    show cl base center
+    cl "Ah you’re such a life saver. I’m kind of busy with my other papers so I need all the help that I can get right now. I’m counting on you!"
+    hide cl base center
 
     #SCENE 4: LETTER
     scene bg room
@@ -189,6 +247,7 @@ label feedback:
             "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
    
     return
+
 
 
 
