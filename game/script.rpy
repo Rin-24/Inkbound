@@ -82,18 +82,18 @@ label start:
     menu:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
 
-        "Dear Mrs. XYZ,":
+        "\"Dear Mrs. XYZ,\"":
             $ score += 1
-        "To whom it may concern":
+        "\"To whom it may concern\"":
             pass
     
    #2
     menu:
         mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
 
-        "This job looks super cool and I think I’d vibe well with the team":
+        "\"This job looks super cool and I think I’d vibe well with the team\"":
             pass
-        "This opportunity deeply aligns with my goals and values":
+        "\"This opportunity deeply aligns with my goals and values\"":
             $ score += 1
 
     #3
@@ -101,9 +101,9 @@ label start:
     menu:
         mc "My experiences (align/aligns) with your organization’s mission."
 
-        "align":           
+        "\"align\"":           
             $ score += 1
-        "aligns":
+        "\"aligns\"":
             pass
 
     #4
@@ -111,18 +111,18 @@ label start:
     menu:
         mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
         
-        "lead":
+        "\"lead\"":
             pass
-        "led":
+        "\"led\"":
             $ score += 1
 
     #5
     menu:
         mc "More about their skills and edge… Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
 
-        "had":
+        "\"had\"":
             pass
-        "have":
+        "\"have\"":
             $ score += 1
 
     #6
@@ -130,9 +130,9 @@ label start:
     menu:
         mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
     
-        "continuous":
+        "\"continuous\"":
             $ score += 1
-        "continuos":
+        "\"continuos\"":
             pass
 
     #7
@@ -140,9 +140,9 @@ label start:
     menu:
         mc "I hope to contribute meaningfully (to/with) your mission and values."
 
-        "to":
+        "\"to\"":
             $ score += 1
-        "with":
+        "\"with\"":
             pass
 
     mc "Wooh! I did it! My first ever commission! I hope it passes the standard of the client!"
@@ -189,6 +189,7 @@ label feedback:
             "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
    
     return
+
 
 
 
