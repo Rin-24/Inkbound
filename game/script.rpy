@@ -215,7 +215,6 @@ label start:
 
 label logbook:
     #show client 1 profile
-    mc "Hmm..."
     return
 
 label feedback:
@@ -231,22 +230,55 @@ label feedback:
         cl "1 STAR! I applied but never heard back from them since :("
 
     menu:
-        "Reveal Answers":            #needs to be improved
-            "1. Correct: Dear Mrs. XYZ\n'To whom it may concern' sounds generic and outdated, which isn’t what the client wants. Using 'Dear Mrs. XYZ' sounds more personal and fits the disposition of the client better."
-
-            "2. Correct: This opportunity deeply aligns with my goals and values)\nEven though the client wants the letter to show their upbeat character, a cover letter should still be professional and formal."
-
-            "3. Correct: My experiences ALIGN with your organization’s mission.\n“Experiences” is plural, so by subject-verb agreement, “align” should be used."
-
-            "4. Correct: I LED multiple campaigns promoting composting and sustainability in urban neighborhoods.\nSince it happened in the past, “led” should be used, as the past tense of “lead”."
-
-            "5. I am familiar with local environmental regulations and HAVE hands-on experience collecting field samples and recording environmental data.\nBased on tense consistency and context, “have” is more suitable to use than “had”. Inconsistent tenses causes confusion to the client’s ability. Using “have” implies they still remember how to do it."
-
-            "6. This role complements my commitment to CONTINUOUS learning, professional growth, and taking part in impactful, on-the-ground environmental efforts.\nProper Spelling."
-
-            "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
-   
+        "Reveal Answers":            
+            call screen answers
     return
+
+screen answers:
+    frame:
+        xsize 1180
+        ysize 680
+        xalign 0.5
+        yalign 0.5
+        padding (40,40,25,50)
+        has vbox
+
+        text "{size=+12}Answers and Explanations{/size}{vspace=10}" xalign 0.5
+
+        viewport id "ans":
+            draggable True
+            mousewheel True
+            scrollbars "vertical"
+            ysize 600
+            
+            has vbox
+            text "1. Standard Cover Letter Greetings: \n{b}{color=#818063}Dear Mrs. XYZ{/color}{/b} / To whom it may concern{vspace=2}"
+            text "“To whom it may concern” sounds generic and outdated, which isn’t what the client wants. Using “Dear Mrs. XYZ” sounds more personal and fits the disposition of the client better.{vspace=10}"
+            
+            text "2. Appropriate Tone: \n This job looks super cool and I think I’d vibe well with the team. / {b}{color=#818063}This opportunity deeply aligns with my goals and values.{/color}{/b}{vspace=2}"
+            text "Even though the client wants the letter to show their upbeat character, a cover letter should still be professional and formal.{vspace=10}"
+
+            text "3. Grammar: \nMy experiences ( {b}{color=#818063}align{/color}{/b} / aligns ) with your organization’s mission.{vspace=2}"
+            text "“Experiences” is plural, so by subject-verb agreement, “align” should be used.{vspace=10}"
+
+            text "4. Grammar: \nI ( lead / {b}{color=#818063}led{/color}{/b} ) multiple campaigns promoting composting and sustainability in urban neighborhoods.{vspace=2}"
+            text "Since it happened in the past, “led” should be used, as the past tense of “lead”.{vspace=10}"
+
+            text "5. Grammar: \nI am familiar with local environmental regulations and (had / {b}{color=#818063}have{/color}{/b} ) hands-on experience collecting field samples and recording environmental data.{vspace=2}"
+            text "Based on tense consistency and context, “have” is more suitable to use than “had”. Inconsistent tenses causes confusion to the client’s ability. Using “have” implies they still remember how to do it.{vspace=10}"
+
+            text "6. Spelling: \nThis role complements my commitment to ( {b}{color=#818063}continuous{/color}{/b} \ continuos ) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts.{vspace=2}"
+            text "Proper Spelling.{vspace=10}"
+
+            text "7. Grammar: \nI hope to contribute meaningfully ( {b}{color=#818063}to{/color}{/b} \ with ) your mission and values.{vspace=2}"
+            text "The right preposition here is “to”; “with” feels grammatically off and awkward.{vspace=10}"
+
+            textbutton "Back" action Return()
+        #position the vertical scrollbar
+        vbar:
+            value YScrollValue("ans")
+    
+
 
 
 
