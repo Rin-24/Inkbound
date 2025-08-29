@@ -211,6 +211,8 @@ label start:
         "Send the Letter to Client 1 ":
             call feedback        #using call here para makabalik to this point once it reaches the return statement sa logbook 
 
+    "DONE"
+
     return
 
 label logbook:
@@ -278,6 +280,7 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
+
 
 
 
