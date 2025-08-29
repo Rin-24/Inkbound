@@ -11,8 +11,8 @@ label start:
     if not name:         
         $ name = "Ash"
 
-    define mc = Character("[name]")
-    define cl = Character ("Client 1")
+    define mc = Character("[name]", color = "#627d8e")        #color based on mc's color palette
+    define cl = Character ("Client 1", color = "#58b0a1")     #color based on cl's color palette
     
     mc "Why does one write?"
     mc "I suppose everyone has a different answer."
@@ -189,6 +189,7 @@ label feedback:
             "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
    
     return
+
 
 
 
