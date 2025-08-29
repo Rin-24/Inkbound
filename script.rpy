@@ -59,8 +59,6 @@ label start:
     #click logbook choice
     menu:
         "Open logbook":
-        show journal_anim at truecenter
-        hide journal_anim
             call logbook        #using call here para makabalik to this point once it reaches the return statement sa logbook 
 
     #SCENE 3: FLASHBACK
@@ -71,7 +69,8 @@ label start:
     mc "Did I flop?..."
     mc "!!!"                     #audio here
     mc "Come in!"
-
+    show kadita pic
+    with fade
     cl "Hello!!!! Are you [name]? Am I in the right place?"
     mc "Yes, yes— that’s me!" 
     mc "You're at the right tiny office with the right tiny desk." 
@@ -186,7 +185,9 @@ label start:
 
 label logbook:
     #show client 1 profile
+    show journal_anim at truecenter
     mc "Hmm..."
+    hide journal_anim
     return
 
 label feedback:
@@ -218,6 +219,7 @@ label feedback:
             "7. I hope to contribute meaningfully TO your mission and values.\nThe right preposition here is “to”; “with” feels grammatically off and awkward."
    
     return
+
 
 
 
