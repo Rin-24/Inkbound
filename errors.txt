@@ -1,0 +1,26 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 89: Captions and say menuitems may not exist in the same menu.
+    "My experiences (align/aligns) with your organization’s mission."
+                                                                   ^
+
+File "game/script.rpy", line 99: Only one say menuitem may exist per menu.
+    mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+                                                                                                        ^
+
+File "game/script.rpy", line 109: Only one say menuitem may exist per menu.
+    mc "I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
+                                                                                                                                                         ^
+
+File "game/script.rpy", line 119: Only one say menuitem may exist per menu.
+    mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
+                                                                                                                                                                        ^
+
+File "game/script.rpy", line 129: Only one say menuitem may exist per menu.
+    mc "I hope to contribute meaningfully (to/with) your mission and values."
+                                                                             ^
+
+Ren'Py Version: Ren'Py 8.4.1.25072401
+Mon Aug 25 02:31:32 2025
