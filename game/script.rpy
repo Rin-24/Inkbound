@@ -1,4 +1,95 @@
 #reminder (for later): make a label for each client for organization
+image journal_anim:
+    "book f1.png"
+    0.1
+    "book f2.png"
+    0.1
+    "book f3.png"
+    0.1
+    "book f4.png"
+    0.1
+    "book f5.png"
+    0.1
+    "book f6.png"
+    0.1
+    "book f7.png"
+    0.1
+    "book f8.png"
+    0.1
+    "book f9.png"
+    0.1
+    "book f10.png"
+    0.1
+    "book f11.png"
+    0.1
+    "book f12.png"
+    5
+
+default score = 0
+default total_score = 0
+default letter_1 = ""
+default letter_2 = ""
+default letter_3 = ""
+default letter_4 = ""
+default letter_5 = ""
+default letter_6 = ""
+default letter_7 = ""
+define gui.text_color = "#000000"
+
+#letter
+style letter_window is default:
+    xalign 0.5
+    yalign 0.5
+    xsize 800
+    ysize 600
+    padding (30, 30)
+    text_align 0.0
+
+style letter_text is default:
+    color "#000000"
+    justify True
+    size 30  # or any size you prefer
+
+screen letter_display():
+    add "letter_pic" at truecenter
+
+    window style "letter_window":
+        text "[letter_1]\n\n    [letter_2][letter_3][letter_4][letter_5][letter_6][letter_7]" style "letter_text" xalign 0.5
+
+
+#rating scene
+image floating_star:
+    "star.png"
+    linear 1.5 ypos -100 alpha 0.0
+
+#score display
+screen score_display():
+    hbox:
+        align(0.95,0.05) #top-right
+        spacing 10
+        add "star.png" size (100,100)
+        vbox:
+            yalign 0.5
+            text "[total_score]" size 48 color "#ffffff" outlines [(1,"#000000",0,0)]
+image letter_pic = "letter pic.png"
+
+
+#splash screen
+image splash = "splash.png"
+
+label splashscreen:
+    scene black
+    with Pause(1)
+
+    show splash with dissolve
+    with Pause(2)
+
+    scene black with dissolve
+    with Pause(0.5)
+
+    return
+
+
 
 label start:
     #SCENE 1: MC SELF INTRO
@@ -6,6 +97,7 @@ label start:
 
     $ name = renpy.input("To start, please enter a name.")
     $ name = name.strip()
+    $ name_cl = "Client 1"
 
      #in the case they dont write a name
     if not name:         
@@ -50,6 +142,10 @@ label start:
     mc "Come in!"
     hide mc base center
 
+    show screen score_display
+    # show kadita pic
+    # with fade
+
     show cl base center
     cl "Hello!!!! Are you [name]? Am I in the right place?"
     hide cl base center
@@ -62,6 +158,7 @@ label start:
 
     show cl base center
     cl "Nice! I’m Kadita!"
+    $ name_cl = "Kadita" #change client name to kadita
     hide cl base center
 
     show mc base center
@@ -132,8 +229,6 @@ label start:
     scene bg room
     "Back to present time..."
 
-    default score = 0
-
     mc "Okay! Let's start!"
 
     #1
@@ -142,7 +237,9 @@ label start:
 
         "\"Dear Mrs. XYZ,\"":
             $ score += 1
+            $ letter_1 = "Dear Mrs. XYZ,"
         "\"To whom it may concern\"":
+            $ letter_1 = "To whom it may concern: "
             pass
     
    #2
@@ -150,8 +247,10 @@ label start:
         mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
 
         "\"This job looks super cool and I think I’d vibe well with the team\"":
+            $ letter_2 = "This job looks super cool and I think I’d vibe well with the team. "
             pass
         "\"This opportunity deeply aligns with my goals and values\"":
+            $ letter_2 = "This opportunity deeply aligns with my goals and values. "
             $ score += 1
 
     #3
@@ -159,9 +258,11 @@ label start:
     menu:
         mc "My experiences (align/aligns) with your organization’s mission."
 
-        "\"align\"":           
+        "\"align\"":     
+            $ letter_3 = "My experiences align with your organization’s mission. "             
             $ score += 1
         "\"aligns\"":
+            $ letter_3 = "My experiences aligns with your organization’s mission. "       
             pass
 
     #4
@@ -170,8 +271,10 @@ label start:
         mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
         
         "\"lead\"":
+            $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
             pass
         "\"led\"":
+            $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
             $ score += 1
 
     #5
@@ -179,8 +282,10 @@ label start:
         mc "More about their skills and edge… Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
 
         "\"had\"":
+            $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
             pass
         "\"have\"":
+            $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
             $ score += 1
 
     #6
@@ -189,8 +294,10 @@ label start:
         mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
     
         "\"continuous\"":
+            $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             $ score += 1
         "\"continuos\"":
+            $ letter_6 = "This role complements my commitment to continuos learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             pass
 
     #7
@@ -199,8 +306,10 @@ label start:
         mc "I hope to contribute meaningfully (to/with) your mission and values."
 
         "\"to\"":
+            $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
             $ score += 1
         "\"with\"":
+            $ letter_7 = "I hope to contribute meaningfully with your mission and values. "
             pass
 
     mc "Wooh! I did it! My first ever commission! I hope it passes the standard of the client!"
@@ -208,6 +317,8 @@ label start:
 
     #feedback / scoring system
     menu:
+        "Show letter":
+            call write_letter # shows the full letter
         "Send the Letter to Client 1 ":
             call feedback        #using call here para makabalik to this point once it reaches the return statement sa logbook 
 
@@ -217,6 +328,15 @@ label start:
 
 label logbook:
     #show client 1 profile
+    show journal_anim at truecenter
+    mc "Hmm..."
+    hide journal_anim
+    return
+
+label write_letter:
+    show screen letter_display
+    pause
+    hide screen letter_display
     return
 
 label feedback:
