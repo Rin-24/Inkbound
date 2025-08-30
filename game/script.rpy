@@ -282,8 +282,9 @@ label start:
             $ total_score += 1
 
     #5
+    mc "More about their skills and edge… "
     menu:
-        mc "More about their skills and edge… Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
+        mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
 
         "\"had\"":
             $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
@@ -410,6 +411,7 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
+
 
 
 
