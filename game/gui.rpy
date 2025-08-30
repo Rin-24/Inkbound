@@ -25,10 +25,10 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#7b5250'
+define gui.accent_color = '#73544d'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#414040'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
@@ -57,22 +57,22 @@ define gui.interface_text_color = '#7b5250'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "fonts/pixelOperator.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "fonts/pixelmix.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "fonts/slkscre.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 33
+define gui.text_size = 45
 
 ## The size of character names.
-define gui.name_text_size = 45
+define gui.name_text_size = 40
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 28
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 36
@@ -97,7 +97,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## a time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = 278
+define gui.textbox_height = 250
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5
 ## is center, and 1.0 is the bottom.
@@ -248,7 +248,7 @@ define gui.file_slot_rows = 2
 
 ## The position of the left side of the navigation buttons, relative to the
 ## left side of the screen.
-define gui.navigation_xpos = 60
+define gui.navigation_xpos = 150
 
 ## The vertical position of the skip indicator.
 define gui.skip_ypos = 15
@@ -260,7 +260,7 @@ define gui.notify_ypos = 68
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 0
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 15
@@ -478,4 +478,5 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
 
