@@ -112,7 +112,7 @@ label start:
     mc "It’s because writing feels like reaching out your hand."
     mc "Both to ask for help and to offer help to others."
     mc "To make an impact, big or small, by doing what I love— That is my goal."
-    show mc base center
+    show mc base center with dissolve
     mc "Which is why... I’m a freelance writer now!"
     hide mc base center
 
@@ -146,7 +146,7 @@ label start:
     # show kadita pic
     # with fade
 
-    show cl base center
+    show cl base center with fade
     cl "Hello!!!! Are you [name]? Am I in the right place?"
     hide cl base center
 
@@ -411,6 +411,7 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
+
 
 
 
