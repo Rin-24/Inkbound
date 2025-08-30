@@ -236,6 +236,7 @@ label start:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
 
         "\"Dear Mrs. XYZ,\"":
+            $ total_score += 1
             $ score += 1
             $ letter_1 = "Dear Mrs. XYZ,"
         "\"To whom it may concern\"":
@@ -251,6 +252,7 @@ label start:
             pass
         "\"This opportunity deeply aligns with my goals and values\"":
             $ letter_2 = "This opportunity deeply aligns with my goals and values. "
+            $ total_score += 1
             $ score += 1
 
     #3
@@ -259,7 +261,8 @@ label start:
         mc "My experiences (align/aligns) with your organization’s mission."
 
         "\"align\"":     
-            $ letter_3 = "My experiences align with your organization’s mission. "             
+            $ letter_3 = "My experiences align with your organization’s mission. "
+            $ total_score += 1
             $ score += 1
         "\"aligns\"":
             $ letter_3 = "My experiences aligns with your organization’s mission. "       
@@ -276,6 +279,7 @@ label start:
         "\"led\"":
             $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
             $ score += 1
+            $ total_score += 1
 
     #5
     menu:
@@ -287,6 +291,7 @@ label start:
         "\"have\"":
             $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
             $ score += 1
+            $ total_score += 1
 
     #6
     mc "I want to mention how much the client is willing to grow too.."
@@ -296,6 +301,7 @@ label start:
         "\"continuous\"":
             $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             $ score += 1
+            $ total_score += 1
         "\"continuos\"":
             $ letter_6 = "This role complements my commitment to continuos learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             pass
@@ -308,20 +314,27 @@ label start:
         "\"to\"":
             $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
             $ score += 1
+            $ total_score += 1
         "\"with\"":
             $ letter_7 = "I hope to contribute meaningfully with your mission and values. "
             pass
 
     mc "Wooh! I did it! My first ever commission! I hope it passes the standard of the client!"
-    mc "total count: [score]"        #not final pero tama to
-
+    # mc "total count: [score]"  
     #feedback / scoring system
     menu:
         "Show letter":
             call write_letter # shows the full letter
-        "Send the Letter to Client 1 ":
-            call feedback        #using call here para makabalik to this point once it reaches the return statement sa logbook 
 
+    menu:
+        "Send the Letter to Client 1 ":
+            show screen feedback(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            pause
+            hide screen feedback
+
+    menu:
+        "Reveal Answers":            
+            call screen answers
     "DONE"
 
     return
@@ -337,24 +350,21 @@ label write_letter:
     show screen letter_display
     pause
     hide screen letter_display
+
     return
 
-label feedback:
+
+screen feedback(score):
     if score == 7:
-        cl "5 STARS! OMG! Thank you so much! Not only did I pass the interview but I also got the job!!"
+        add "five stars.png" at truecenter
     elif score >= 5:
-        cl "4 STARS! It’s not perfect but I still got the interview and the job! ;)"
+        add "four stars.png" at truecenter
     elif score >= 3:
-        cl "3 STARS! Hello! Someone else had their interview before mine and ended up getting the job :("
+        add "three stars.png" at truecenter
     elif score == 2:
-        cl "2 STARS! Hello! They rejected my application. I didn’t get the interview…"
+        add "two stars.png" at truecenter
     else:
-        cl "1 STAR! I applied but never heard back from them since :("
-
-    menu:
-        "Reveal Answers":            
-            call screen answers
-    return
+        add "one star.png" at truecenter
 
 screen answers:
     frame:
@@ -400,13 +410,6 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
-
-
-
-
-
-
-
 
 
 
