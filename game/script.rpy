@@ -93,29 +93,45 @@ label splashscreen:
 
 label start:
     #SCENE 1: MC SELF INTRO
-    scene bg room             #the bedroom bg
+    #scene bg room             #the bedroom bg
 
-    $ name = renpy.input("To start, please enter a name.")
-    $ name = name.strip()
     $ name_cl = "Client 1"
 
      #in the case they dont write a name
-    if not name:         
-        $ name = "Ash"
+   # if not name:         
+   #     $ name = "Ash"
 
     define mc = Character("[name]", color = "#627d8e")        #color based on mc's color palette
-    define cl = Character ("Client 1", color = "#58b0a1")     #color based on cl's color palette
+    define cl1 = Character ("Client 1", color = "#58b0a1")     #color based on cl's color palette
+    define cl2 = Character ("Client 2") #add color
     
-    mc "Why does one write?"
-    mc "I suppose everyone has a different answer."
-    mc "But for me? Well..."
-    mc "It’s because writing feels like reaching out your hand."
-    mc "Both to ask for help and to offer help to others."
-    mc "To make an impact, big or small, by doing what I love— That is my goal."
+    "The last thing I remember..."
+    "and the first thing I saw.. was darkness"
+    "Cold. Blank. Empty. Darkness"
+    "I woke up in a strange place, surrounded by paper and pens."
+    scene bg room
+    "And somehow, it felt familiar"
+    "Like a life I've known all along"
+    "I tried to retrace my memories. My life. My name..."
+    $ name = renpy.input ("What was my name?")
+    $ name = name.strip()
+    if not name:         
+        $ name = "Ash"
+    
+    # client 1 enters
     show mc base center with dissolve
-    mc "Which is why... I’m a freelance writer now!"
+    mc "Well... no use in searching for blank pages."
+    mc "I guess I'll just have to stay here...and figure things out."
+    mc "Gather the pieces - guided and bound by ink."
     hide mc base center
 
+    #TUTORIAL
+
+    label tutorial_intro:
+    call screen tutorial_screen(0)
+    return
+
+'''
     #SCENE 2: CLIENT 1
     scene bg office        #purely for transition
     "The next day!"
@@ -411,6 +427,7 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
+'''
 
 
 
