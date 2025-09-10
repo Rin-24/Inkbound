@@ -76,10 +76,10 @@ label client_1:
             $ letter_1 = "To the Admissions Committee,"
             $ total_score += 1
             $ score += 1
-            $ letter_2 = "I am writing to respectfully appeal your decision regarding my college application."
+            $ letter_2 = "  I am writing to respectfully appeal your decision regarding my college application."
         "\"because I disagree with your decision to reject me. \"":
             $ letter_1 = "To the Admissions Committee,"
-            $ letter_2 = "I am writing because I disagree with your decision to reject me. "
+            $ letter_2 = "  I am writing because I disagree with your decision to reject me. "
             pass
     
    #2
@@ -87,10 +87,10 @@ label client_1:
     menu:
         mc "{cps=20}\"I ..... my current academic performance. \"{/cps}"
         "\"see no problem with\"":
-            $ letter_3 = "see no problem with "
+            $ letter_3 = "I see no problem with my current academic performance.  "
             pass
         "\"carefully evaluated\"":
-            $ letter_3 = "carefully evaluated "
+            $ letter_3 = "I carefully evaluated my current academic performance. "
             $ total_score += 1
             $ score += 1
 
@@ -100,11 +100,11 @@ label client_1:
         mc "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
 
         "\"studied the prerequisites\"":     
-            $ letter_4 = "studied the prerequisites "
+            $ letter_4 = "To strengthen my application for nursing school, I have studied the prerequisites. "
             $ total_score += 1
             $ score += 1
         "\"done enough already\"":
-            $ letter_4 = "done enough already "       
+            $ letter_4 = "To strengthen my application for nursing school, I have done enough already. "       
             pass
 
     #4
@@ -125,10 +125,10 @@ label client_1:
     menu:
         mc "{cps=20}\"...\"{/cps}"
         "\"Let me know if I got in or not\"":
-            $ letter_6 = "Let me know if I got in or not "
+            $ letter_6 = "\nLet me know if I got in or not. "
             pass
         "\"Thank you for your time and consideration.\"":
-            $ letter_6 = "Thank you for your time and consideration. "
+            $ letter_6 = "\nThank you for your time and consideration. "
             $ score += 1
             $ total_score += 1
 
@@ -136,12 +136,42 @@ label client_1:
     mc "The right sign-off goes a long way. "
     menu:
         mc "{cps=20}\"...\"{/cps}"
-        "\"See you,\n Madison\"":
-            $ letter_7 = "See you, \n Madison "
+        "\"See you,\n   Madison\"":
+            $ letter_7 = "\nSee you, \n Madison "
             pass
         "\"Respectfully,\n Madison \"":
-            $ letter_7 = "Respectfully,\n Madison "
+            $ letter_7 = "\nRespectfully,\n   Madison "
             $ score += 1
             $ total_score += 1
+
+    menu:
+        "Show letter":
+            call write_letter # shows the full letter
+
+    menu:
+        "Send the Letter to Client 1 ":
+            show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            pause
+            hide screen feedback_cl1
+
+    return
+
+screen feedback_cl1(score):
+    if score == 7:
+        add "five stars.png" at truecenter
+    elif score >= 5:
+        add "four stars.png" at truecenter
+    elif score >= 3:
+        add "three stars.png" at truecenter
+    elif score == 2:
+        add "two stars.png" at truecenter
+    else:
+        add "one star.png" at truecenter
+
+label write_letter:
+    show screen letter_display
+    pause
+    hide screen letter_display
+
     return
 
