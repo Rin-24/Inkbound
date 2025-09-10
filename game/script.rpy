@@ -92,18 +92,15 @@ label splashscreen:
 
 
 label start:
-    #SCENE 1: MC SELF INTRO
+    #MC SELF INTRO
     #scene bg room             #the bedroom bg
 
     $ name_cl = "Client 1"
+    $ name_cl2 = "Client 2"
 
-     #in the case they dont write a name
-   # if not name:         
-   #     $ name = "Ash"
-
-    define mc = Character("[name]", color = "#627d8e")        #color based on mc's color palette
-    define cl1 = Character ("Client 1", color = "#58b0a1")     #color based on cl's color palette
-    define cl2 = Character ("Client 2") #add color
+    define mc = Character("[name]", color = "#d94214")         #color based on mc's color palette
+    define cl1 = Character ("Client 1", color = "#511d33")     #color based on cl1's color palette
+    define cl2 = Character ("Client 2", color = "#050e59")     #color based on cl2's color palette
     
     "The last thing I remember..."
     "and the first thing I saw.. was darkness"
@@ -118,7 +115,6 @@ label start:
     if not name:         
         $ name = "Ash"
     
-    # client 1 enters
     show mc base center with dissolve
     mc "Well... no use in searching for blank pages."
     mc "I guess I'll just have to stay here...and figure things out."
@@ -127,233 +123,18 @@ label start:
 
     #TUTORIAL
     call screen tutorial_screen(0)
+    show screen score_display
 
-    jump client_1
+    call client_1
+    call client_2
+    return
 
 '''
-    #SCENE 2: CLIENT 1
-    scene bg office        #purely for transition
-    "The next day!"
-
-    scene bg room
-    show mc base center
-    mc "My first day! My first ever client!!"
-    mc "Now, let's see..."
-    hide mc base center
-
-    #click logbook choice
+    show screen score_display
+     #click logbook choice
     menu:
         "Open logbook":
             call logbook        #using call here para makabalik to this point once it reaches the return statement sa logbook 
-
-    #SCENE 3: FLASHBACK
-    scene bg office
-    "Earlier that day!"
-
-    show mc base center
-    mc "No one’s knocking yet… It’s been hours since I opened…"
-    mc "Did I flop?..."
-    mc "!!!"                     #audio here
-    mc "Come in!"
-    hide mc base center
-
-    show screen score_display
-    # show kadita pic
-    # with fade
-
-    show cl base center with fade
-    cl "Hello!!!! Are you [name]? Am I in the right place?"
-    hide cl base center
-
-    show mc base center
-    mc "Yes, yes— that’s me!" 
-    mc "You're at the right tiny office with the right tiny desk." 
-    mc "And you are?"
-    hide mc base center
-
-    show cl base center
-    cl "Nice! I’m Kadita!"
-    $ name_cl = "Kadita" #change client name to kadita
-    hide cl base center
-
-    show mc base center
-    mc "Nice to meet you, Kadita."
-    hide mc base center
-
-    show mc base left
-    mc "Please have a seat. How can I help you?"
-    hide mc base left
-
-    show cl base right
-    cl "Okay. Soooo, this is kind of last minute… but I really need help writing a cover letter."
-    hide cl base right
-
-    show mc base left
-    mc "Sure! Are you applying for a job?"
-    hide mc base left
-
-    show cl base right
-    cl "Yep. I want to apply as an Assistant to an Environmental Specialist in this Organization."
-    hide cl base right
-
-    show mc base left
-    mc "Ooh, interesting!"
-    mc "Alright, a few quick questions first so you get the kind of letter you need."
-    mc "Who’s the letter addressed to?"
-    hide mc base left
-
-    show cl base right
-    cl "It says Mrs. XYZ in the poster of the regional environmental office. I can send you the details later!"
-    hide cl base right
-
-    show mc base left
-    mc "Noted. What kind of tone do you want to go for? Formal and strictly professional? Or something more warm and personal?"
-    hide mc base left
-
-    show cl base right
-    cl "The latter please! Still professional, of course, but I want them to see I’m genuine and not robotic."
-    hide cl base right
-
-    show mc base left
-    mc "Haha got it!"
-    mc "And for the last one: What exactly do you want this letter to do? Get you in the door? Show off your passion? Highlight your background?"
-    hide mc base left
-
-    show cl base right
-    cl "Well, all of that! If it’s not much trouble hehe"
-    cl "But mostly— I want to secure the interview. I want them to read the letter and not hesitate to contact me. If they talk to me, I know I can convince them!"
-    hide cl base right
-
-    show mc base left
-    mc "Woah, so confident. I like your energy!"
-    hide mc base left
-
-    show cl base right
-    cl "Hehe, thank you! Here’s the rest of my details and background that I feel is necessary to add by the way."
-    hide cl base right
-
-    show mc base center
-    mc "Don’t worry, I will get this letter back right away after I finish it. Hope you get the interview!"
-    hide mc base center
-
-    show cl base center
-    cl "Ah you’re such a life saver. I’m kind of busy with my other papers so I need all the help that I can get right now. I’m counting on you!"
-    hide cl base center
-
-    #SCENE 4: LETTER
-    scene bg room
-    "Back to present time..."
-
-    mc "Okay! Let's start!"
-
-    #1
-    menu:
-        mc "Since this is a cover letter, what appropriate greeting should be used…"
-
-        "\"Dear Mrs. XYZ,\"":
-            $ total_score += 1
-            $ score += 1
-            $ letter_1 = "Dear Mrs. XYZ,"
-        "\"To whom it may concern\"":
-            $ letter_1 = "To whom it may concern: "
-            pass
-    
-   #2
-    menu:
-        mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
-
-        "\"This job looks super cool and I think I’d vibe well with the team\"":
-            $ letter_2 = "This job looks super cool and I think I’d vibe well with the team. "
-            pass
-        "\"This opportunity deeply aligns with my goals and values\"":
-            $ letter_2 = "This opportunity deeply aligns with my goals and values. "
-            $ total_score += 1
-            $ score += 1
-
-    #3
-    mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
-    menu:
-        mc "My experiences (align/aligns) with your organization’s mission."
-
-        "\"align\"":     
-            $ letter_3 = "My experiences align with your organization’s mission. "
-            $ total_score += 1
-            $ score += 1
-        "\"aligns\"":
-            $ letter_3 = "My experiences aligns with your organization’s mission. "       
-            pass
-
-    #4
-    mc "Then how should I phrase their volunteer works…"
-    menu:
-        mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
-        
-        "\"lead\"":
-            $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
-            pass
-        "\"led\"":
-            $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
-            $ score += 1
-            $ total_score += 1
-
-    #5
-    mc "More about their skills and edge… "
-    menu:
-        mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
-
-        "\"had\"":
-            $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
-            pass
-        "\"have\"":
-            $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
-            $ score += 1
-            $ total_score += 1
-
-    #6
-    mc "I want to mention how much the client is willing to grow too.."
-    menu:
-        mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
-    
-        "\"continuous\"":
-            $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
-            $ score += 1
-            $ total_score += 1
-        "\"continuos\"":
-            $ letter_6 = "This role complements my commitment to continuos learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
-            pass
-
-    #7
-    mc "…Almost done! Let’s wrap this up with intent and clarity."
-    menu:
-        mc "I hope to contribute meaningfully (to/with) your mission and values."
-
-        "\"to\"":
-            $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
-            $ score += 1
-            $ total_score += 1
-        "\"with\"":
-            $ letter_7 = "I hope to contribute meaningfully with your mission and values. "
-            pass
-
-    mc "Wooh! I did it! My first ever commission! I hope it passes the standard of the client!"
-    # mc "total count: [score]"  
-    #feedback / scoring system
-    menu:
-        "Show letter":
-            call write_letter # shows the full letter
-
-    menu:
-        "Send the Letter to Client 1 ":
-            show screen feedback(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
-            pause
-            hide screen feedback
-
-    menu:
-        "Reveal Answers":            
-            call screen answers
-    "DONE"
-
-    return
 
 label logbook:
     #show client 1 profile
@@ -361,6 +142,7 @@ label logbook:
     mc "Hmm..."
     hide journal_anim
     return
+'''
 
 label write_letter:
     show screen letter_display
@@ -382,7 +164,7 @@ screen feedback(score):
     else:
         add "one star.png" at truecenter
 
-screen answers:
+screen cl2_answers:
     frame:
         xsize 1180
         ysize 680
@@ -426,11 +208,3 @@ screen answers:
         vbar:
             value YScrollValue("ans")
     
-'''
-
-
-
-
-
-
-
