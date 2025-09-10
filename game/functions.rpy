@@ -43,6 +43,7 @@ screen tutorial_screen(current_page=0):
 
 label client_1:
     cl1 "Hi, I'm Madison! I need your help."
+    $cl1 ="Madison"
     mc "Hi, Madison! What can I do for you?"
     cl1 "Can you help me write an appeal letter for college?"
     mc "Wait, let me guess your program..."
@@ -55,5 +56,14 @@ label client_1:
     cl1 "Haha, thank you! I wish, but no, I'm taking up nursing."
     cl1 "Well..I should be. They turned me down."
     cl1 "They told me I can write a formal appeal to the admissions committee for reconsideration."
+    mc "You must really like nursing to write an appeal, huh?"
+    cl1 "Um..not really. But we are a family of medical professionals."
+    cl1 "I wouldn't want to disappoint them. You understand, right?"
+    mc "I get you... If you really want that spot, I'll help you!"
+    mc "So, a college appeal letter to the admissions committee for reconsideration, right?"
+    cl1 "Yes, thank you! Can I come back for it later?"
+    mc "Sure! But Madison...why don't you think about this first?"
+    mc "It's your life and time, won't you rather spend it on something you enjoy doing?"
+    cl1 "I know...I'll think about it. See you later!"
     return
 
