@@ -74,7 +74,6 @@ label client_1:
         mc "{cps=20}\"I am writing...\"{/cps}"
         "\"to respectfully appeal your decision regarding my college application.\"":
             $ letter_1 = "To the Admissions Committee,"
-            $ total_score += 1
             $ score += 1
             $ letter_2 = "  I am writing to respectfully appeal your decision regarding my college application."
         "\"because I disagree with your decision to reject me. \"":
@@ -91,7 +90,6 @@ label client_1:
             pass
         "\"carefully evaluated\"":
             $ letter_3 = "I carefully evaluated my current academic performance. "
-            $ total_score += 1
             $ score += 1
 
     #3
@@ -101,7 +99,6 @@ label client_1:
 
         "\"studied the prerequisites\"":     
             $ letter_4 = "To strengthen my application for nursing school, I have studied the prerequisites. "
-            $ total_score += 1
             $ score += 1
         "\"done enough already\"":
             $ letter_4 = "To strengthen my application for nursing school, I have done enough already. "       
@@ -118,7 +115,6 @@ label client_1:
         "\"I am dedicated to putting in the effort in this program.\"":
             $letter_5 = "I am dedicated to putting in the effort in this program. "
             $ score += 1
-            $ total_score += 1
 
     #5
     mc "Nice, time to wrap it up...something that leaves a lasting impression"
@@ -130,7 +126,6 @@ label client_1:
         "\"Thank you for your time and consideration.\"":
             $ letter_6 = "\nThank you for your time and consideration. "
             $ score += 1
-            $ total_score += 1
 
     #6
     mc "The right sign-off goes a long way. "
@@ -142,7 +137,6 @@ label client_1:
         "\"Respectfully,\n Madison \"":
             $ letter_7 = "\nRespectfully,\n   Madison "
             $ score += 1
-            $ total_score += 1
 
     menu:
         "Show letter":
@@ -159,21 +153,19 @@ label client_1:
 screen feedback_cl1(score):
     if score == 7:
         add "five stars.png" at truecenter
+        total_score = 5
     elif score >= 5:
         add "four stars.png" at truecenter
+        total_score = 4
     elif score >= 3:
         add "three stars.png" at truecenter
+        total_score = 3
     elif score == 2:
         add "two stars.png" at truecenter
+        total_score = 2
     else:
         add "one star.png" at truecenter
-
-label write_letter:
-    show screen letter_display
-    pause
-    hide screen letter_display
-
-    return
+        total_score = 1
 
 label client_2:
     #audio
