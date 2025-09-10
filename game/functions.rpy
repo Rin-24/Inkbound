@@ -65,5 +65,71 @@ label client_1:
     mc "Sure! But Madison...why don't you think about this first?"
     mc "It's your life and time, won't you rather spend it on something you enjoy doing?"
     cl1 "I know...I'll think about it. See you later!"
+    #letter proper
+
+    mc "Let's start! It should be addressed to the admissions committee."
+    mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."   
+    #1
+    menu:
+        mc "{cps=20}\"I am writing...\"{/cps}"
+        "\"to respectfully appeal your decision regarding my college application.\"":
+            $letter_1 = "To the Admissions Committee,"
+            $ total_score += 1
+            $ score += 1
+            $ letter_2 = "to respectfully appeal your decision regarding my college application."
+        "\"because I disagree with your decision to reject me. \"":
+            $ letter_1 = "because I disagree with your decision to reject me. "
+            pass
+    
+   #2
+    menu:
+        mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
+
+        "\"This job looks super cool and I think I’d vibe well with the team\"":
+            $ letter_2 = "This job looks super cool and I think I’d vibe well with the team. "
+            pass
+        "\"This opportunity deeply aligns with my goals and values\"":
+            $ letter_2 = "This opportunity deeply aligns with my goals and values. "
+            $ total_score += 1
+            $ score += 1
+
+    #3
+    mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
+    menu:
+        mc "My experiences (align/aligns) with your organization’s mission."
+
+        "\"align\"":     
+            $ letter_3 = "My experiences align with your organization’s mission. "
+            $ total_score += 1
+            $ score += 1
+        "\"aligns\"":
+            $ letter_3 = "My experiences aligns with your organization’s mission. "       
+            pass
+
+    #4
+    mc "Then how should I phrase their volunteer works…"
+    menu:
+        mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+        
+        "\"lead\"":
+            $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+            pass
+        "\"led\"":
+            $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+            $ score += 1
+            $ total_score += 1
+
+    #5
+    mc "More about their skills and edge… "
+    menu:
+        mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
+
+        "\"had\"":
+            $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
+            pass
+        "\"have\"":
+            $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
+            $ score += 1
+            $ total_score += 1
     return
 
