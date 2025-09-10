@@ -42,36 +42,63 @@ screen tutorial_screen(current_page=0):
                     textbutton "Continue" action Return()
 
 label client_1:
+    show cl1 base center with fade
     cl1 "Hi, I'm Madison! I need your help."
     $cl1 ="Madison"
+    hide cl1 base center
+    show mc base center 
     mc "Hi, Madison! What can I do for you?"
+    hide mc base center
+    show cl1 base center
     cl1 "Can you help me write an appeal letter for college?"
+    hide cl1 base center
+    show mc base left
     mc "Wait, let me guess your program..."
+    hide mc base left
     menu:
         "Fashion Design":
+            show mc base left
             mc "Fashion design? Your outfit looks so nice!"
         "Theatre":
+            show mc base left
             mc "Theatre? You look like someone who performs!"
-
+    show cl1 base right
     cl1 "Haha, thank you! I wish, but no, I'm taking up nursing."
+    hide cl1 base right
+    hide mc base left
+    show cl1 base center
     cl1 "Well..I should be. They turned me down."
     cl1 "They told me I can write a formal appeal to the admissions committee for reconsideration."
+    hide cl1 base center 
+    show mc base center
     mc "You must really like nursing to write an appeal, huh?"
+    hide mc base center
+    show cl1 base center
     cl1 "Um..not really. But we are a family of medical professionals."
     cl1 "I wouldn't want to disappoint them. You understand, right?"
+    hide cl1 base center
+    show mc base center
     mc "I get you... If you really want that spot, I'll help you!"
     mc "So, a college appeal letter to the admissions committee for reconsideration, right?"
+    hide mc base center 
+    show cl1 base center
     cl1 "Yes, thank you! Can I come back for it later?"
+    hide cl1 base center 
+    show mc base left
     mc "Sure! But Madison...why don't you think about this first?"
     mc "It's your life and time, won't you rather spend it on something you enjoy doing?"
+    show cl1 base right
     cl1 "I know...I'll think about it. See you later!"
+    hide mc base left
+    hide cl1 base right
     #letter proper
-
+    show mc base center
     mc "Let's start! It should be addressed to the admissions committee."
-    mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."   
+    mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."
+    hide mc base center
     #1
     menu:
-        mc "{cps=20}\"I am writing...\"{/cps}"
+        "{cps=20}\"I am writing...\"{/cps}"
         "\"to respectfully appeal your decision regarding my college application.\"":
             $ letter_1 = "To the Admissions Committee,"
             $ score += 1
@@ -84,7 +111,7 @@ label client_1:
    #2
     mc "Hmm, she needs to talk about her academic standing."
     menu:
-        mc "{cps=20}\"I ..... my current academic performance. \"{/cps}"
+        "{cps=20}\"I ..... my current academic performance. \"{/cps}"
         "\"see no problem with\"":
             $ letter_3 = "I see no problem with my current academic performance.  "
             pass
@@ -95,7 +122,7 @@ label client_1:
     #3
     mc "I should also mention what she has done to improve..."
     menu:
-        mc "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
+        "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
 
         "\"studied the prerequisites\"":     
             $ letter_4 = "To strengthen my application for nursing school, I have studied the prerequisites. "
@@ -107,7 +134,7 @@ label client_1:
     #4
     mc "Hmmm, let's make sure they see she's serious about this."
     menu:
-        mc "{cps=20}\"...\"{/cps}"
+        "{cps=20}\"...\"{/cps}"
         
         "\"I am the best candidate you have and deserve to be reconsidered.\"":
             $letter_5 = "I am the best candidate you have and deserve to be reconsidered. "
@@ -119,7 +146,7 @@ label client_1:
     #5
     mc "Nice, time to wrap it up...something that leaves a lasting impression"
     menu:
-        mc "{cps=20}\"...\"{/cps}"
+        "{cps=20}\"...\"{/cps}"
         "\"Let me know if I got in or not\"":
             $ letter_6 = "\nLet me know if I got in or not. "
             pass
@@ -130,7 +157,7 @@ label client_1:
     #6
     mc "The right sign-off goes a long way. "
     menu:
-        mc "{cps=20}\"...\"{/cps}"
+        "{cps=20}\"...\"{/cps}"
         "\"See you,\n   Madison\"":
             $ letter_7 = "\nSee you, \n Madison "
             pass
@@ -147,25 +174,28 @@ label client_1:
             show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
             hide screen feedback_cl1
-
+    menu:
+        "Reveal Answers":            
+            call screen cl1_answers
     return
 
 screen feedback_cl1(score):
     if score == 7:
         add "five stars.png" at truecenter
-        total_score = 5
+        $total_score = 5
     elif score >= 5:
         add "four stars.png" at truecenter
-        total_score = 4
+        $total_score = 4
     elif score >= 3:
         add "three stars.png" at truecenter
-        total_score = 3
+        $total_score = 3
     elif score == 2:
         add "two stars.png" at truecenter
-        total_score = 2
+        $total_score = 2
     else:
         add "one star.png" at truecenter
-        total_score = 1
+        $total_score = 1
+
 
 label client_2:
     #audio

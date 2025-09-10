@@ -164,6 +164,49 @@ screen feedback(score):
     else:
         add "one star.png" at truecenter
 
+screen cl1_answers:
+    frame:
+        xsize 1180
+        ysize 680
+        xalign 0.5
+        yalign 0.5
+        padding (40,40,25,50)
+        has vbox
+
+        text "{size=+12}Answers and Explanations{/size}{vspace=10}" xalign 0.5
+
+        viewport id "ans":
+            draggable True
+            mousewheel True
+            scrollbars "vertical"
+            ysize 600
+            
+            has vbox
+
+            text "1. Tone: \n{b}{color=#818063}to respectfully appeal your decision regarding my college application{/color}{/b} / because I disagree with your decision to reject me{vspace=2}"
+            text "A respectful appeal sets a professional tone and shows maturity. Expressing disagreement too directly may sound defensive and damage the first impression.{vspace=10}"
+
+            text "2. Appropriateness: \n{b}{color=#818063}carefully evaluated{/color}{/b} / see no problem with{vspace=2}"
+            text "Reflection should show growth and responsibility. Claiming there’s “no problem” sounds dismissive and ignores the purpose of an appeal.{vspace=10}"
+
+            text "3. Tone: \n{b}{color=#818063}studied the prerequisites{/color}{/b} / done enough already{vspace=2}"
+            text "Showing that you studied prerequisites highlights effort and readiness. Saying you’ve “done enough” comes across as entitled and unwilling to grow.{vspace=10}"
+
+            text "4. Appropriateness: \n{b}{color=#818063}I am dedicated to putting in the effort in this program.{/color}{/b} / I am the best candidate you have and deserve to be reconsidered.{vspace=2}"
+            text "Expressing dedication communicates humility and commitment. Declaring yourself the “best candidate” appears arrogant and inappropriate for this context.{vspace=10}"
+
+            text "5. Tone: \n{b}{color=#818063}Thank you for your time and consideration.{/color}{/b} / Let me know if I got in or not.{vspace=2}"
+            text "The thank-you statement conveys politeness and professionalism. The casual request sounds impatient and weakens the closing tone.{vspace=10}"
+
+            textbutton "Back" action Return()
+
+        vbar:
+            value YScrollValue("ans")
+
+
+
+
+
 screen cl2_answers:
     frame:
         xsize 1180
