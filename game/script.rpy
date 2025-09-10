@@ -48,7 +48,7 @@ style letter_window is default:
 style letter_text is default:
     color "#000000"
     justify True
-    size 30  # or any size you prefer
+    size 30  
 
 screen letter_display():
     add "letter_pic" at truecenter
@@ -107,7 +107,7 @@ label start:
     
     "The last thing I remember..."
     "and the first thing I saw.. was darkness"
-    "Cold. Blank. Empty. Darkness"
+    "Blank and empty. An oddly comforting darkness"
     "I woke up in a strange place, surrounded by paper and pens."
     scene bg room
     "And somehow, it felt familiar"
