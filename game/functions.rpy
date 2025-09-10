@@ -177,6 +177,9 @@ label write_letter:
 
 label client_2:
     #audio
+    $ score = 0
+    # "score = [score]" to check score
+
     show cl2 base center with fade
     cl2 "Good day! Are you [name]? Am I in the right place?"
     hide cl2 base center
