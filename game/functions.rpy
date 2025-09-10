@@ -41,4 +41,19 @@ screen tutorial_screen(current_page=0):
                 else:
                     textbutton "Continue" action Return()
 
-label
+label client_1:
+    cl1 "Hi, I'm Madison! I need your help."
+    mc "Hi, Madison! What can I do for you?"
+    cl1 "Can you help me write an appeal letter for college?"
+    mc "Wait, let me guess your program..."
+    menu:
+        "Fashion Design":
+            mc "Fashion design? Your outfit looks so nice!"
+        "Theatre":
+            mc "Theatre? You look like someone who performs!"
+
+    cl1 "Haha, thank you! I wish, but no, I'm taking up nursing."
+    cl1 "Well..I should be. They turned me down."
+    cl1 "They told me I can write a formal appeal to the admissions committee for reconsideration."
+    return
+

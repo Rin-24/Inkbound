@@ -126,10 +126,9 @@ label start:
     hide mc base center
 
     #TUTORIAL
-
-    label tutorial_intro:
     call screen tutorial_screen(0)
-    return
+
+    jump client_1
 
 '''
     #SCENE 2: CLIENT 1
