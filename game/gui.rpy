@@ -28,18 +28,18 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#73544d'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#414040'
+define gui.idle_color = '#000000'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#000000'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#c1e0ff'
+define gui.hover_color = '#ae5d40'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#ae5d40'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#8888887f'
@@ -50,8 +50,8 @@ define gui.muted_color = '#3d5166'
 define gui.hover_muted_color = '#5b7a99'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#7b5250'
-define gui.interface_text_color = '#7b5250'
+define gui.text_color = '#79444a'
+define gui.interface_text_color = '#79444a'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -478,5 +478,6 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
 
 
