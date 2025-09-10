@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 75: Only one say menuitem may exist per menu.
-    mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."
-                                                                                            ^
+File "game/functions.rpy", line 87: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    mc "{cps=20}\"I [.....] my current academic performance. \"{/cps}"
+    ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Sep 10 15:18:44 2025
+Wed Sep 10 15:40:42 2025

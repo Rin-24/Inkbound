@@ -73,62 +73,74 @@ label client_1:
     menu:
         mc "{cps=20}\"I am writing...\"{/cps}"
         "\"to respectfully appeal your decision regarding my college application.\"":
-            $letter_1 = "To the Admissions Committee,"
+            $ letter_1 = "To the Admissions Committee,"
             $ total_score += 1
             $ score += 1
             $ letter_2 = "to respectfully appeal your decision regarding my college application."
         "\"because I disagree with your decision to reject me. \"":
-            $ letter_1 = "because I disagree with your decision to reject me. "
+            $ letter_1 = "To the Admissions Committee,"
+            $ letter_2 = "because I disagree with your decision to reject me. "
             pass
     
    #2
+    mc "Hmm, she needs to talk about her academic standing."
     menu:
-        mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
-
-        "\"This job looks super cool and I think I’d vibe well with the team\"":
-            $ letter_2 = "This job looks super cool and I think I’d vibe well with the team. "
+        mc "{cps=20}\"I ..... my current academic performance. \"{/cps}"
+        "\"see no problem with\"":
+            $ letter_3 = "see no problem with "
             pass
-        "\"This opportunity deeply aligns with my goals and values\"":
-            $ letter_2 = "This opportunity deeply aligns with my goals and values. "
+        "\"carefully evaluated\"":
+            $ letter_3 = "carefully evaluated "
             $ total_score += 1
             $ score += 1
 
     #3
-    mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
+    mc "I should also mention what she has done to improve..."
     menu:
-        mc "My experiences (align/aligns) with your organization’s mission."
+        mc "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
 
-        "\"align\"":     
-            $ letter_3 = "My experiences align with your organization’s mission. "
+        "\"studied the prerequisites\"":     
+            $ letter_4 = "studied the prerequisites "
             $ total_score += 1
             $ score += 1
-        "\"aligns\"":
-            $ letter_3 = "My experiences aligns with your organization’s mission. "       
+        "\"done enough already\"":
+            $ letter_4 = "done enough already "       
             pass
 
     #4
-    mc "Then how should I phrase their volunteer works…"
+    mc "Hmmm, let's make sure they see she's serious about this."
     menu:
-        mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+        mc "{cps=20}\"...\"{/cps}"
         
-        "\"lead\"":
-            $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+        "\"I am the best candidate you have and deserve to be reconsidered.\"":
+            $letter_5 = "I am the best candidate you have and deserve to be reconsidered. "
             pass
-        "\"led\"":
-            $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+        "\"I am dedicated to putting in the effort in this program.\"":
+            $letter_5 = "I am dedicated to putting in the effort in this program. "
             $ score += 1
             $ total_score += 1
 
     #5
-    mc "More about their skills and edge… "
+    mc "Nice, time to wrap it up...something that leaves a lasting impression"
     menu:
-        mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
-
-        "\"had\"":
-            $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
+        mc "{cps=20}\"...\"{/cps}"
+        "\"Let me know if I got in or not\"":
+            $ letter_6 = "Let me know if I got in or not "
             pass
-        "\"have\"":
-            $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
+        "\"Thank you for your time and consideration.\"":
+            $ letter_6 = "Thank you for your time and consideration. "
+            $ score += 1
+            $ total_score += 1
+
+    #6
+    mc "The right sign-off goes a long way. "
+    menu:
+        mc "{cps=20}\"...\"{/cps}"
+        "\"See you,\n Madison\"":
+            $ letter_7 = "See you, \n Madison "
+            pass
+        "\"Respectfully,\n Madison \"":
+            $ letter_7 = "Respectfully,\n Madison "
             $ score += 1
             $ total_score += 1
     return
