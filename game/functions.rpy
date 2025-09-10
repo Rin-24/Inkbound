@@ -42,6 +42,7 @@ screen tutorial_screen(current_page=0):
                     textbutton "Continue" action Return()
 
 label client_1:
+    play sound "audio/SXF_door.mp3"
     cl1 "Hi, I'm Madison! I need your help."
     $cl1 ="Madison"
     mc "Hi, Madison! What can I do for you?"
@@ -68,6 +69,8 @@ label client_1:
     #letter proper
 
     mc "Let's start! It should be addressed to the admissions committee."
+    
+    play sound "audio/SFX_paper.mp3"
     mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."   
     #1
     menu:
@@ -82,6 +85,7 @@ label client_1:
             pass
     
    #2
+    play sound "audio/SFX_paper.mp3"
     mc "Hmm, she needs to talk about her academic standing."
     menu:
         mc "{cps=20}\"I ..... my current academic performance. \"{/cps}"
@@ -93,6 +97,7 @@ label client_1:
             $ score += 1
 
     #3
+    play sound "audio/SFX_paper.mp3"
     mc "I should also mention what she has done to improve..."
     menu:
         mc "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
@@ -105,6 +110,7 @@ label client_1:
             pass
 
     #4
+    play sound "audio/SFX_paper.mp3"
     mc "Hmmm, let's make sure they see she's serious about this."
     menu:
         mc "{cps=20}\"...\"{/cps}"
@@ -117,6 +123,7 @@ label client_1:
             $ score += 1
 
     #5
+    play sound "audio/SFX_paper.mp3"
     mc "Nice, time to wrap it up...something that leaves a lasting impression"
     menu:
         mc "{cps=20}\"...\"{/cps}"
@@ -128,6 +135,7 @@ label client_1:
             $ score += 1
 
     #6
+    play sound "audio/SFX_paper.mp3"
     mc "The right sign-off goes a long way. "
     menu:
         mc "{cps=20}\"...\"{/cps}"
@@ -140,12 +148,15 @@ label client_1:
 
     menu:
         "Show letter":
+            play sound "audio/SFX_click.mp3"
             call write_letter # shows the full letter
 
     menu:
         "Send the Letter to Client 1 ":
+            play sound "audio/SFX_click.mp3"
             show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
+            play sound "audio/SFX_click.mp3"
             hide screen feedback_cl1
 
     return
@@ -168,7 +179,7 @@ screen feedback_cl1(score):
         total_score = 1
 
 label client_2:
-    #audio
+    play sound "audio/SXF_door.mp3"
     $ score = 0
     # "score = [score]" to check score
 
@@ -249,7 +260,6 @@ label client_2:
 
     show mc base center
     mc "Perfect."
-    #audio here
     hide mc base center
 
     "Continue or end the conversation?"
@@ -283,6 +293,7 @@ label client_2:
     mc "Another client who needs help. Let's get right into this."
 
     #1
+    play sound "audio/SFX_paper.mp3"
     menu:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
 
@@ -295,6 +306,7 @@ label client_2:
             pass
     
    #2
+    play sound "audio/SFX_paper.mp3"
     menu:
         mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
 
@@ -307,6 +319,7 @@ label client_2:
             $ score += 1
 
     #3
+    play sound "audio/SFX_paper.mp3"
     mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
     menu:
         mc "My experiences (align/aligns) with your organization’s mission."
@@ -320,6 +333,7 @@ label client_2:
             pass
 
     #4
+    play sound "audio/SFX_paper.mp3"
     mc "Then how should I phrase their volunteer works…"
     menu:
         mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
@@ -333,6 +347,7 @@ label client_2:
             $ total_score += 1
 
     #5
+    play sound "audio/SFX_paper.mp3"
     mc "More about their skills and edge… "
     menu:
         mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
@@ -346,6 +361,7 @@ label client_2:
             $ total_score += 1
 
     #6
+    play sound "audio/SFX_paper.mp3"
     mc "I want to mention how much the client is willing to grow too.."
     menu:
         mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
@@ -359,6 +375,7 @@ label client_2:
             pass
 
     #7
+    play sound "audio/SFX_paper.mp3"
     mc "…Almost done! Let’s wrap this up with intent and clarity."
     menu:
         mc "I hope to contribute meaningfully (to/with) your mission and values."
@@ -376,16 +393,20 @@ label client_2:
     #feedback / scoring system
     menu:
         "Show letter":
+            play sound "audio/SFX_click.mp3"
             call write_letter # shows the full letter
 
     menu:
         "Send the Letter to Client 1 ":
+            play sound "audio/SFX_click.mp3"
             show screen feedback(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
+            play sound "audio/SFX_click.mp3"
             hide screen feedback
 
     menu:
-        "Reveal Answers":            
+        "Reveal Answers":      
+            play sound "audio/SFX_click.mp3"
             call screen cl2_answers
     "DONE"
 
