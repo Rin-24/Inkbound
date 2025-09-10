@@ -76,10 +76,10 @@ label client_1:
             $ letter_1 = "To the Admissions Committee,"
             $ total_score += 1
             $ score += 1
-            $ letter_2 = "to respectfully appeal your decision regarding my college application."
+            $ letter_2 = "I am writing to respectfully appeal your decision regarding my college application."
         "\"because I disagree with your decision to reject me. \"":
             $ letter_1 = "To the Admissions Committee,"
-            $ letter_2 = "because I disagree with your decision to reject me. "
+            $ letter_2 = "I am writing because I disagree with your decision to reject me. "
             pass
     
    #2
