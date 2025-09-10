@@ -169,6 +169,9 @@ screen feedback_cl1(score):
 
 label client_2:
     #audio
+    $ score = 0
+    # "score = [score]" to check score
+
     show cl2 base center with fade
     cl2 "Good day! Are you [name]? Am I in the right place?"
     hide cl2 base center
@@ -369,7 +372,7 @@ label client_2:
             pass
     mc "Done! I hope it gets what Luke wants."
     
-    # mc "total count: [score]"  
+    # "total count: [total_score]"  to check total score
     #feedback / scoring system
     menu:
         "Show letter":
