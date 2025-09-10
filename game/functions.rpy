@@ -380,7 +380,7 @@ label client_2:
             pass
     mc "Done! I hope it gets what Luke wants."
     
-    # mc "total count: [score]"  
+    # "total count: [total_score]"  to check total score
     #feedback / scoring system
     menu:
         "Show letter":
