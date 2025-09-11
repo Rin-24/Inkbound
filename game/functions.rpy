@@ -198,16 +198,15 @@ label client_1:
 
 screen feedback_cl1(score):
     if score == 7:
-        add "five stars.png" at truecenter
+        add "five cl1.png" at truecenter
     elif score >= 5:
-        add "four stars.png" at truecenter
+        add "four cl1.png" at truecenter
     elif score >= 3:
-        add "three stars.png" at truecenter
+        add "three cl1.png" at truecenter
     elif score == 2:
-        add "two stars.png" at truecenter
+        add "two cl1.png" at truecenter
     else:
-        add "one star.png" at truecenter
-
+        add "one cl1.png" at truecenter
 
 label client_2:
     play sound "audio/SXF_door.mp3"
@@ -428,9 +427,9 @@ label client_2:
             call write_letter # shows the full letter
 
     menu:
-        "Send the Letter to Client 1 ":
+        "Send the Letter to Client 2 ":
             play sound "audio/SFX_click.mp3"
-            show screen feedback(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            show screen feedback_cl2(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback

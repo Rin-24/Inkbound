@@ -152,17 +152,17 @@ label write_letter:
     return
 
 
-screen feedback(score):
+screen feedback_cl2(score):
     if score == 7:
-        add "five stars.png" at truecenter
+        add "five cl2.png" at truecenter
     elif score >= 5:
-        add "four stars.png" at truecenter
+        add "four cl2.png" at truecenter
     elif score >= 3:
-        add "three stars.png" at truecenter
+        add "three cl2.png" at truecenter
     elif score == 2:
-        add "two stars.png" at truecenter
+        add "two cl2.png" at truecenter
     else:
-        add "one star.png" at truecenter
+        add "one cl2.png" at truecenter
 
 screen cl1_answers:
     frame:
