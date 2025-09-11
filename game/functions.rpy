@@ -197,7 +197,7 @@ label client_1:
     return
 
 screen feedback_cl1(score):
-    if score == 7:
+    if score == 6:
         add "five stars.png" at truecenter
     elif score >= 5:
         add "four stars.png" at truecenter
