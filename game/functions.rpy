@@ -432,7 +432,7 @@ label client_2:
             show screen feedback_cl2(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
             play sound "audio/SFX_click.mp3"
-            hide screen feedback
+            hide screen feedback_cl2
 
     menu:
         "Reveal Answers":      
