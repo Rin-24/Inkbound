@@ -197,7 +197,7 @@ label client_1:
     return
 
 screen feedback_cl1(score):
-    if score == 7:
+    if score == 6:
         add "five cl1.png" at truecenter
     elif score >= 5:
         add "four cl1.png" at truecenter
@@ -352,7 +352,7 @@ label client_2:
     play sound "audio/SFX_paper.mp3"
     mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
     menu:
-        mc "My experiences (align/aligns) with your organization’s mission."
+        "{cps=20}My experiences (align/aligns) with your organization’s mission.{/cps}"
 
         "\"align\"":     
             $ letter_3 = "My experiences align with your organization’s mission. "
@@ -366,7 +366,7 @@ label client_2:
     play sound "audio/SFX_paper.mp3"
     mc "Then how should I phrase their volunteer works…"
     menu:
-        mc "I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods."
+        "{cps=20}I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods.{/cps}"
         
         "\"lead\"":
             $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
@@ -380,7 +380,7 @@ label client_2:
     play sound "audio/SFX_paper.mp3"
     mc "More about their skills and edge… "
     menu:
-        mc "Write: I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data."
+        "{cps=20}I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data.{/cps}"
 
         "\"had\"":
             $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
@@ -394,7 +394,7 @@ label client_2:
     play sound "audio/SFX_paper.mp3"
     mc "I want to mention how much the client is willing to grow too.."
     menu:
-        mc "This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts."
+        "{cps=20}This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts.{/cps}"
     
         "\"continuous\"":
             $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
@@ -408,7 +408,7 @@ label client_2:
     play sound "audio/SFX_paper.mp3"
     mc "…Almost done! Let’s wrap this up with intent and clarity."
     menu:
-        mc "I hope to contribute meaningfully (to/with) your mission and values."
+        "{cps=20}I hope to contribute meaningfully (to/with) your mission and values.{/cps}"
 
         "\"to\"":
             $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
