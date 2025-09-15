@@ -71,7 +71,7 @@ screen score_display():
         add "star.png" size (100,100)
         vbox:
             yalign 0.5
-            text "[total_score]" size 48 color "#ffffff" outlines [(1,"#000000",0,0)]
+            text "[star_count]" size 48 color "#ffffff" outlines [(1,"#000000",0,0)]
 image letter_pic = "letter pic.png"
 
 

@@ -178,6 +178,18 @@ label client_1:
             $ letter_7 = "\nRespectfully,\n   Madison "
             $ score += 1
 #            $ total_score += 1
+    if score == 6:
+        $ total_count = 5
+    elif score >= 5:
+        $ total_count = 4
+    elif score >= 3:
+        $ total_count = 3
+    elif score == 2:
+        $ total_count = 2
+    else:
+        $ total_count = 1
+
+    
 
     menu:
         "Show letter":
@@ -188,10 +200,10 @@ label client_1:
         "Send the Letter to Client 1 ":
             play sound "audio/SFX_click.mp3"
             show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
-            $ star_count += total_count
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback_cl1
+            $ star_count += total_count
     menu:
         "Reveal Answers":            
             call screen cl1_answers
@@ -200,19 +212,14 @@ label client_1:
 screen feedback_cl1(score):
 
     if score == 6:
-        $total_count = 5
         add "five cl1.png" at truecenter
     elif score >= 5:
-        $total_count = 4
         add "four cl1.png" at truecenter
     elif score >= 3:
-        $total_count = 3
         add "three cl1.png" at truecenter
     elif score == 2:
-        $total_count = 2
         add "two cl1.png" at truecenter
     else:
-        $total_count = 1
         add "one cl1.png" at truecenter
 
 label client_2:
@@ -335,7 +342,7 @@ label client_2:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
 
         "\"Dear Mrs. XYZ,\"":
-            $ total_score += 1
+#            $ total_score += 1
             $ score += 1
             $ letter_1 = "Dear Mrs. XYZ,"
         "\"To whom it may concern\"":
@@ -352,7 +359,7 @@ label client_2:
             pass
         "\"This opportunity deeply aligns with my goals and values\"":
             $ letter_2 = "This opportunity deeply aligns with my goals and values. "
-            $ total_score += 1
+#            $ total_score += 1
             $ score += 1
 
     #3
@@ -363,7 +370,7 @@ label client_2:
 
         "\"align\"":     
             $ letter_3 = "My experiences align with your organization’s mission. "
-            $ total_score += 1
+#            $ total_score += 1
             $ score += 1
         "\"aligns\"":
             $ letter_3 = "My experiences aligns with your organization’s mission. "       
@@ -381,7 +388,7 @@ label client_2:
         "\"led\"":
             $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     #5
     play sound "audio/SFX_paper.mp3"
@@ -395,7 +402,7 @@ label client_2:
         "\"have\"":
             $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     #6
     play sound "audio/SFX_paper.mp3"
@@ -406,7 +413,7 @@ label client_2:
         "\"continuous\"":
             $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
         "\"continuos\"":
             $ letter_6 = "This role complements my commitment to continuos learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
             pass
@@ -420,7 +427,7 @@ label client_2:
         "\"to\"":
             $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
         "\"with\"":
             $ letter_7 = "I hope to contribute meaningfully with your mission and values. "
             pass
@@ -432,6 +439,16 @@ label client_2:
         "Show letter":
             play sound "audio/SFX_click.mp3"
             call write_letter # shows the full letter
+    if score == 6:
+        $ total_count = 5
+    elif score >= 5:
+        $ total_count = 4
+    elif score >= 3:
+        $ total_count = 3
+    elif score == 2:
+        $ total_count = 2
+    else:
+        $ total_count = 1
 
     menu:
         "Send the Letter to Client 2 ":
@@ -440,6 +457,7 @@ label client_2:
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback_cl2
+    $star_count +=total_count
 
     menu:
         "Reveal Answers":      

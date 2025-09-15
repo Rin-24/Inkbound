@@ -1,41 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading the script.
-  File "game/options.rpy", line 15, in <module>
-    define config.name = _("Inkbound", color = "#ffffff")
-                         ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: _() got an unexpected keyword argument 'color'
+While running game code:
+  File "game/script.rpy", line 129, in script call
+    call client_1
+  File "game/functions.rpy", line 191, in script
+    $ star_count += total_count
+  File "game/functions.rpy", line 191, in <module>
+    $ star_count += total_count
+                    ^^^^^^^^^^^
+NameError: name 'total_count' is not defined. Did you mean: 'star_count'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 376, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 435, in main
-    renpy.game.script.load_script()  # sets renpy.game.script.
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^                           
-  File "renpy/script.py", line 421, in load_script
-    self.load_appropriate_file(".rpyc", ["_ren.py", ".rpy"], dir, fn, initcode)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/script.py", line 1042, in load_appropriate_file
-    self.finish_load(stmts, initcode, filename=lastfn)  # type: ignore
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/script.py", line 683, in finish_load
-    node.early_execute()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "renpy/ast.py", line 2433, in early_execute
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/options.rpy", line 15, in <module>
-    define config.name = _("Inkbound", color = "#ffffff")
-                         ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: _() got an unexpected keyword argument 'color'
+  File "game/script.rpy", line 129, in script call
+    call client_1
+  File "game/functions.rpy", line 191, in script
+    $ star_count += total_count
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/functions.rpy", line 191, in <module>
+    $ star_count += total_count
+                    ^^^^^^^^^^^
+NameError: name 'total_count' is not defined. Did you mean: 'star_count'?
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.4.1.25072401
- 
-Thu Sep 11 08:55:46 2025
+Inkbound 1.0
+Mon Sep 15 18:29:01 2025
