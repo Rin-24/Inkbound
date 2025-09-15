@@ -188,7 +188,7 @@ label client_1:
         "Send the Letter to Client 1 ":
             play sound "audio/SFX_click.mp3"
             show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
-            star_count += total_count
+            $ star_count += total_count
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback_cl1
@@ -198,20 +198,21 @@ label client_1:
     return
 
 screen feedback_cl1(score):
+
     if score == 6:
-        total_count = 5
+        $total_count = 5
         add "five cl1.png" at truecenter
     elif score >= 5:
-        total_count = 4
+        $total_count = 4
         add "four cl1.png" at truecenter
     elif score >= 3:
-        total_count = 3
+        $total_count = 3
         add "three cl1.png" at truecenter
     elif score == 2:
-        total_count = 2
+        $total_count = 2
         add "two cl1.png" at truecenter
     else:
-        total_count = 1
+        $total_count = 1
         add "one cl1.png" at truecenter
 
 label client_2:
