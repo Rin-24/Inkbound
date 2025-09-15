@@ -35,6 +35,7 @@ default letter_5 = ""
 default letter_6 = ""
 default letter_7 = ""
 define gui.text_color = "#000000"
+default star_count = 0
 
 #letter
 style letter_window is default:

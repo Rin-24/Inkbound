@@ -105,7 +105,7 @@ label client_1:
         "\"to respectfully appeal your decision regarding my college application.\"":
             $ letter_1 = "To the Admissions Committee,"
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
             $ letter_2 = "  I am writing to respectfully appeal your decision regarding my college application."
         "\"because I disagree with your decision to reject me. \"":
             $ letter_1 = "To the Admissions Committee,"
@@ -123,7 +123,7 @@ label client_1:
         "\"carefully evaluated\"":
             $ letter_3 = "I carefully evaluated my current academic performance. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     #3
     play sound "audio/SFX_paper.mp3"
@@ -134,7 +134,7 @@ label client_1:
         "\"studied the prerequisites\"":     
             $ letter_4 = "To strengthen my application for nursing school, I have studied the prerequisites. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
         "\"done enough already\"":
             $ letter_4 = "To strengthen my application for nursing school, I have done enough already. "       
             pass
@@ -151,7 +151,7 @@ label client_1:
         "\"I am dedicated to putting in the effort in this program.\"":
             $letter_5 = "I am dedicated to putting in the effort in this program. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     #5
     play sound "audio/SFX_paper.mp3"
@@ -164,7 +164,7 @@ label client_1:
         "\"Thank you for your time and consideration.\"":
             $ letter_6 = "\nThank you for your time and consideration. "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     #6
     play sound "audio/SFX_paper.mp3"
@@ -177,7 +177,7 @@ label client_1:
         "\"Respectfully,\n Madison \"":
             $ letter_7 = "\nRespectfully,\n   Madison "
             $ score += 1
-            $ total_score += 1
+#            $ total_score += 1
 
     menu:
         "Show letter":
@@ -188,6 +188,7 @@ label client_1:
         "Send the Letter to Client 1 ":
             play sound "audio/SFX_click.mp3"
             show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            star_count += total_count
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback_cl1
@@ -198,14 +199,19 @@ label client_1:
 
 screen feedback_cl1(score):
     if score == 6:
+        total_count = 5
         add "five cl1.png" at truecenter
     elif score >= 5:
+        total_count = 4
         add "four cl1.png" at truecenter
     elif score >= 3:
+        total_count = 3
         add "three cl1.png" at truecenter
     elif score == 2:
+        total_count = 2
         add "two cl1.png" at truecenter
     else:
+        total_count = 1
         add "one cl1.png" at truecenter
 
 label client_2:
