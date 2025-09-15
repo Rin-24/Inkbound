@@ -40,6 +40,8 @@ screen tutorial_screen(current_page=0):
                     textbutton "Next" action [SetScreenVariable("page", page + 1)]
                 else:
                     textbutton "Continue" action Return()
+                
+                textbutton "Skip" action Return()
 
 label client_1:
     play sound "audio/SXF_door.mp3"
