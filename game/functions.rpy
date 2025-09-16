@@ -26,8 +26,14 @@ screen tutorial_screen(current_page=0):
         vbox:
             spacing 20
 
-            # show tutorial text
-            text tutorial_pages[page] size 35
+            # fixed text area
+            viewport:
+                xmaximum 900
+                ymaximum 300
+                draggable False
+                scrollbars "vertical"
+
+                text tutorial_pages[page] size 35
 
             hbox:
                 spacing 20
@@ -40,10 +46,11 @@ screen tutorial_screen(current_page=0):
                     textbutton "Next" action [SetScreenVariable("page", page + 1)]
                 else:
                     textbutton "Continue" action Return()
-                
+
                 textbutton "Skip" action Return()
 
 label client_1:
+    scene bg office
     play sound "audio/SXF_door.mp3"
     show cl1 base center with fade
     cl1 "Hi, I'm Madison! I need your help."
@@ -101,6 +108,8 @@ label client_1:
     play sound "audio/SFX_paper.mp3"
     mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."
     hide mc base center
+    scene bg room
+
     #1
     menu:
         "{cps=20}\"I am writing...\"{/cps}"
@@ -215,15 +224,36 @@ screen feedback_cl1(score):
 
     if score == 6:
         add "five cl1.png" at truecenter
+        #jump cl1_fail
     elif score >= 5:
         add "four cl1.png" at truecenter
+        #jump cl1_
     elif score >= 3:
         add "three cl1.png" at truecenter
     elif score == 2:
         add "two cl1.png" at truecenter
     else:
         add "one cl1.png" at truecenter
-
+"""
+label cl1_sumakses:
+    show cl1 base center 
+    cl1 "Hi, I'm back! Is my letter ready?"
+    hide cl1 base center 
+    show mc base center 
+    mc "Madison, hi! Yes, it's ready. Did you think about what I said?"
+    hide mc base center 
+    show cl1 base center 
+    cl1 "Yes and I talked to my parents about it..."
+    cl1 "And they said I could pursue what I want instead!"
+    hide cl1 base center 
+    show mc base center 
+    mc "That's so great! I'm happy for you!"
+    hide mc base center 
+    show cl1 base center 
+    cl1 "It's all thanks to you! You convinced me to chase my dreams."
+    hide cl1 base 
+"""
+    
 label client_2:
     play sound "audio/SXF_door.mp3"
     $ score = 0

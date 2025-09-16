@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 191: expected statement.
-    star_count += total_count
-               ^
-
-File "game/functions.rpy", line 202: 'total_count' is not a keyword argument or valid child of the screen statement.
-    total_count = 5
-               ^
+File "game/functions.rpy", line 227: 'jump' is not a keyword argument or valid child of the screen statement.
+    jump cl1_fail
+        ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Sep 15 18:24:20 2025
+Tue Sep 16 23:09:52 2025

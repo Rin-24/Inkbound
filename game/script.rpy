@@ -95,7 +95,6 @@ label splashscreen:
 label start:
     #MC SELF INTRO
     #scene bg room             #the bedroom bg
-
     $ name_cl = "Client 1"
     $ name_cl2 = "Client 2"
 
