@@ -68,10 +68,10 @@ screen score_display():
     hbox:
         align(0.95,0.05) #top-right
         spacing 10
-        add "star.png" size (100,100)
+        add "star.png" size (120,120)
         vbox:
             yalign 0.5
-            text "[star_count]" size 48 color "#ffffff" outlines [(1,"#000000",0,0)]
+            text "[star_count]" size 55 color "#ffffff" outlines [(1,"#000000",0,0)]
 image letter_pic = "letter pic.png"
 
 
@@ -102,6 +102,8 @@ label start:
     define mc = Character("[name]", color = "#d94214")         #color based on mc's color palette
     define cl1 = Character ("Client 1", color = "#511d33")     #color based on cl1's color palette
     define cl2 = Character ("Client 2", color = "#050e59")     #color based on cl2's color palette
+
+    play music "audio/BGM_Room.mp3" fadein 1.0
     
     "The last thing I remember..."
     "and the first thing I saw.. was darkness"

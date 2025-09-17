@@ -43,7 +43,16 @@ screen tutorial_screen(current_page=0):
                 
                 textbutton "Skip" action Return()
 
+label tutorial:
+    stop music
+    play music "audio/BGM_Room.mp3" fadein 1.0 #what the FUCK
+    call screen tutorial_screen
+    return
+
 label client_1:
+    image bg1 main_menu="gui/main_menu.png"
+    scene bg1 main_menu
+    play music "audio/BGM_Office.mp3" fadein 1.0
     play sound "audio/SXF_door.mp3"
     show cl1 base center with fade
     cl1 "Hi, I'm Madison! I need your help."
@@ -82,7 +91,6 @@ label client_1:
     hide cl1 base center
     show mc base center
     mc "I get you... If you really want that spot, I'll help you!"
-    mc "So, a college appeal letter to the admissions committee for reconsideration, right?"
     hide mc base center 
     show cl1 base center
     cl1 "Yes, thank you! Can I come back for it later?"
@@ -94,7 +102,9 @@ label client_1:
     cl1 "I know...I'll think about it. See you later!"
     hide mc base left
     hide cl1 base right
+    
     #letter proper
+    scene bg room
     show mc base center
     mc "Let's start! It should be addressed to the admissions committee."
     
@@ -201,7 +211,7 @@ label client_1:
     menu:
         "Send the Letter to Client 1 ":
             play sound "audio/SFX_click.mp3"
-            show screen feedback_cl1(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            show screen feedback_cl1(score)     #using call here para makabalik to this point once it reaches the return statement sa logbook 
             pause
             play sound "audio/SFX_click.mp3"
             hide screen feedback_cl1
@@ -225,6 +235,7 @@ screen feedback_cl1(score):
         add "one cl1.png" at truecenter
 
 label client_2:
+    scene bg1 main_menu
     play sound "audio/SXF_door.mp3"
     $ score = 0
     # "score = [score]" to check score
@@ -255,16 +266,7 @@ label client_2:
     hide mc base center
 
     show cl2 base right
-    cl2 "Yeah… I need to start applying for something that pays better, but I’m plenty busy with life as is."
-    cl2 "I thought, since you’re a writer, maybe... you could help me write a solid cover letter?"
-    hide cl2 base right
-
-    show mc base left
-    mc "Is there a specific job you have in mind?"
-    hide mc base left
-
-    show cl2 base right
-    cl2 "Yep. I’m eyeing this Assistant position to an Environmental Specialist. It’s with the Regional Environmental Office. Seems stable, and it pays way better than my current gig."
+    cl2 "There’s an opening—Assistant to an Environmental Specialist. Solid pay. I just… I can’t write the letter alone."
     hide cl2 base right
 
     show mc base left
@@ -279,25 +281,20 @@ label client_2:
     show mc base left
     mc "(...)\n(The name... sounds oddly familiar? Wait—)"
     mc "(FOCUS!)"
-    mc "Uh That's noted. What kind of tone do you want to go for? Formal and strictly professional? Or something warmer and personal?"
+    mc "Uh, that's noted. Anything else I need to know?"
     hide mc base left
 
     show cl2 base right
-    cl2 "Definitely the latter. Still professional, of course, but I want them to feel I’m genuine and not robotic."
+    cl2 "I just… I don’t want to sound like some stiff template. I want them to hear me in the letter."
     hide cl2 base right
-
-    show mc base left
-    mc "Got it."
-    mc "And for the last one: What exactly do you want this letter to do?\nGet you in the door? Show off your passion? Highlight your background?"
-    hide mc base left
 
     show cl2 base right
     cl2 "All of it, honestly."
-    cl2 "But mostly— I want to secure the interview. I want them to read the letter and not hesitate to contact me. If they talk to me, I know I can convince them!"
+    cl2 "But mostly— I want to secure the interview. If they talk to me, I know I can convince them and prove myself!"
     hide cl2 base right
 
     show mc base left
-    mc "Woah, that’s the spirit!"
+    mc "Woah, that’s the spirit!\nLet’s make sure your words carry all of that. Hand me your story and I’ll take it from here."
     hide mc base left
 
     show cl2 base right
@@ -339,6 +336,7 @@ label client_2:
     mc "Another client who needs help. Let's get right into this."
 
     #1
+    scene bg room
     play sound "audio/SFX_paper.mp3"
     menu:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
