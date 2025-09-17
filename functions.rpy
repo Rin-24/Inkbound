@@ -1,0 +1,468 @@
+init python:
+    tutorial_pages = [
+        "Welcome, [name].\nYou don’t remember much, but your hands still know how to write.\n\nHere’s how this works:\n\n{b}Meet Your Client{/b}\n\nSomeone will come to you with a request.\nThey’ll ask for a letter. A message. A speech.\nYou are their ghostwriter. Their pen. Their voice.",
+        
+        "{b}Choose How To Write{/b}\n\nYou’ll shape the message by making choices, but each choice will be evaluated on three elements:\n\n{b}Tone{/b} - Does the letter sound warm, professional, cold, or emotional?\nThe tone sets the emotional mood of the message. It’s how your client will be heard.\n\n{b}Grammar{/b} - How the message is written.\nPerfect grammar may sound smart and polished.\nCasual or messy writing might feel more honest or personal.\n\n{b}Appropriateness{/b} - This is about how well the message fits the context.\nIs it too formal for a personal moment? Too blunt for a delicate situation?\nA message might be well-written but still completely wrong for the audience.\n\n",
+        
+        "{b}Receive Ratings{/b}\n\nWhen the letter is done, the client will give you a star rating (1–5):\n- Was the tone right?\n- Was the grammar appropriate?\n- Did you write what they really needed?\n\nEvery client gives you stars.",
+
+        "{b}Unlock New Chapters{/b}\n\nAs you collect stars, you’ll unlock new chapters in the main storyline.\nEach new chapter reveals:\n• More about your lost memories\n• New types of clients\n• Harder choices with higher stakes\n\nEarn enough stars to move forward.\nChoose wisely to uncover the truth.",
+
+        "Ready to begin?\nYour first client is waiting."
+    ]
+
+screen tutorial_screen(current_page=0):
+    tag tutorial
+
+    default page = current_page
+
+    frame:
+        style "menu_frame"
+        xalign 0.5
+        yalign 0.5
+        padding (40, 30)
+        xmaximum 1000
+
+        vbox:
+            spacing 20
+
+            # show tutorial text
+            text tutorial_pages[page] size 35
+
+            hbox:
+                spacing 20
+                xalign 1.0
+
+                if page > 0:
+                    textbutton "Back" action [SetScreenVariable("page", page - 1)]
+
+                if page < len(tutorial_pages) - 1:
+                    textbutton "Next" action [SetScreenVariable("page", page + 1)]
+                else:
+                    textbutton "Continue" action Return()
+                
+                textbutton "Skip" action Return()
+
+label tutorial:
+    play music "audio/BGM_Room.mp3" fadein 1.0
+    call screen tutorial_screen
+    return
+
+label client_1:
+    image bg1 main_menu="gui/main_menu.png"
+    scene bg1 main_menu
+    play sound "audio/BGM_Office.mp3" #why is this not working fml
+    play sound "audio/SXF_door.mp3"
+    show cl1 base center with fade
+    cl1 "Hi, I'm Madison! I need your help."
+    $cl1 ="Madison"
+    hide cl1 base center
+    show mc base center 
+    mc "Hi, Madison! What can I do for you?"
+    hide mc base center
+    show cl1 base center
+    cl1 "Can you help me write an appeal letter for college?"
+    hide cl1 base center
+    show mc base left
+    mc "Wait, let me guess your program..."
+    hide mc base left
+    menu:
+        "Fashion Design":
+            show mc base left
+            mc "Fashion design? Your outfit looks so nice!"
+        "Theatre":
+            show mc base left
+            mc "Theatre? You look like someone who performs!"
+    show cl1 base right
+    cl1 "Haha, thank you! I wish, but no, I'm taking up nursing."
+    hide cl1 base right
+    hide mc base left
+    show cl1 base center
+    cl1 "Well..I should be. They turned me down."
+    cl1 "They told me I can write a formal appeal to the admissions committee for reconsideration."
+    hide cl1 base center 
+    show mc base center
+    mc "You must really like nursing to write an appeal, huh?"
+    hide mc base center
+    show cl1 base center
+    cl1 "Um..not really. But we are a family of medical professionals."
+    cl1 "I wouldn't want to disappoint them. You understand, right?"
+    hide cl1 base center
+    show mc base center
+    mc "I get you... If you really want that spot, I'll help you!"
+    hide mc base center 
+    show cl1 base center
+    cl1 "Yes, thank you! Can I come back for it later?"
+    hide cl1 base center 
+    show mc base left
+    mc "Sure! But Madison...why don't you think about this first?"
+    mc "It's your life and time, won't you rather spend it on something you enjoy doing?"
+    show cl1 base right
+    cl1 "I know...I'll think about it. See you later!"
+    hide mc base left
+    hide cl1 base right
+    
+    #letter proper
+    scene bg room
+    show mc base center
+    mc "Let's start! It should be addressed to the admissions committee."
+    
+    play sound "audio/SFX_paper.mp3"
+    mc "Hmmm, it should be formal. No one wants to read a complaint disguised as an appeal."
+    hide mc base center
+    #1
+    menu:
+        "{cps=20}\"I am writing...\"{/cps}"
+        "\"to respectfully appeal your decision regarding my college application.\"":
+            $ letter_1 = "To the Admissions Committee,"
+            $ score += 1
+#            $ total_score += 1
+            $ letter_2 = "  I am writing to respectfully appeal your decision regarding my college application."
+        "\"because I disagree with your decision to reject me. \"":
+            $ letter_1 = "To the Admissions Committee,"
+            $ letter_2 = "  I am writing because I disagree with your decision to reject me. "
+            pass
+    
+   #2
+    play sound "audio/SFX_paper.mp3"
+    mc "Hmm, she needs to talk about her academic standing."
+    menu:
+        "{cps=20}\"I ..... my current academic performance. \"{/cps}"
+        "\"see no problem with\"":
+            $ letter_3 = "I see no problem with my current academic performance.  "
+            pass
+        "\"carefully evaluated\"":
+            $ letter_3 = "I carefully evaluated my current academic performance. "
+            $ score += 1
+#            $ total_score += 1
+
+    #3
+    play sound "audio/SFX_paper.mp3"
+    mc "I should also mention what she has done to improve..."
+    menu:
+        "{cps=20}\"To strengthen my application for nursing school, I have...\"{/cps}"
+
+        "\"studied the prerequisites\"":     
+            $ letter_4 = "To strengthen my application for nursing school, I have studied the prerequisites. "
+            $ score += 1
+#            $ total_score += 1
+        "\"done enough already\"":
+            $ letter_4 = "To strengthen my application for nursing school, I have done enough already. "       
+            pass
+
+    #4
+    play sound "audio/SFX_paper.mp3"
+    mc "Hmmm, let's make sure they see she's serious about this."
+    menu:
+        "{cps=20}\"...\"{/cps}"
+        
+        "\"I am the best candidate you have and deserve to be reconsidered.\"":
+            $letter_5 = "I am the best candidate you have and deserve to be reconsidered. "
+            pass
+        "\"I am dedicated to putting in the effort in this program.\"":
+            $letter_5 = "I am dedicated to putting in the effort in this program. "
+            $ score += 1
+#            $ total_score += 1
+
+    #5
+    play sound "audio/SFX_paper.mp3"
+    mc "Nice, time to wrap it up...something that leaves a lasting impression"
+    menu:
+        "{cps=20}\"...\"{/cps}"
+        "\"Let me know if I got in or not\"":
+            $ letter_6 = "\nLet me know if I got in or not. "
+            pass
+        "\"Thank you for your time and consideration.\"":
+            $ letter_6 = "\nThank you for your time and consideration. "
+            $ score += 1
+#            $ total_score += 1
+
+    #6
+    play sound "audio/SFX_paper.mp3"
+    mc "The right sign-off goes a long way. "
+    menu:
+        "{cps=20}\"...\"{/cps}"
+        "\"See you,\n   Madison\"":
+            $ letter_7 = "\nSee you, \n Madison "
+            pass
+        "\"Respectfully,\n Madison \"":
+            $ letter_7 = "\nRespectfully,\n   Madison "
+            $ score += 1
+#            $ total_score += 1
+    if score == 6:
+        $ total_count = 5
+    elif score >= 5:
+        $ total_count = 4
+    elif score >= 3:
+        $ total_count = 3
+    elif score == 2:
+        $ total_count = 2
+    else:
+        $ total_count = 1
+
+    
+
+    menu:
+        "Show letter":
+            play sound "audio/SFX_click.mp3"
+            call write_letter # shows the full letter
+
+    menu:
+        "Send the Letter to Client 1 ":
+            play sound "audio/SFX_click.mp3"
+            show screen feedback_cl1(score)     #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            pause
+            play sound "audio/SFX_click.mp3"
+            hide screen feedback_cl1
+            $ star_count += total_count
+    menu:
+        "Reveal Answers":            
+            call screen cl1_answers
+    return
+
+screen feedback_cl1(score):
+
+    if score == 6:
+        add "five cl1.png" at truecenter
+    elif score >= 5:
+        add "four cl1.png" at truecenter
+    elif score >= 3:
+        add "three cl1.png" at truecenter
+    elif score == 2:
+        add "two cl1.png" at truecenter
+    else:
+        add "one cl1.png" at truecenter
+
+label client_2:
+    scene bg1 main_menu
+    play sound "audio/SXF_door.mp3"
+    $ score = 0
+    # "score = [score]" to check score
+
+    show cl2 base center with fade
+    cl2 "Good day! Are you [name]? Am I in the right place?"
+    hide cl2 base center
+    
+    show mc base center
+    mc "That’s me! And you are?" 
+    hide mc base center
+
+    show cl2 base center
+    cl2 "I’m Luke! I saw your flyer."
+    $ cl2 = "Luke" 
+    hide cl2 base center
+
+    show mc base left
+    mc "Nice to meet you, Luke. What can I help you with?"
+    hide mc base center
+
+    show cl2 base right
+    cl2 "Uhm.. You see… I’m in my mid-30s.\nI don’t come from money, and my current job barely pays enough to support my family…"
+    hide cl2 base right
+
+    show mc base left
+    mc "That sounds really tough…"
+    hide mc base center
+
+    show cl2 base right
+    cl2 "There’s an opening—Assistant to an Environmental Specialist. Solid pay. I just… I can’t write the letter alone."
+    hide cl2 base right
+
+    show mc base left
+    mc "(Oh, environmental specialist?)"
+    mc "Alright, I'll need you to answer a few questions first.\nWho’s the letter addressed to?"
+    hide mc base left
+
+    show cl2 base right
+    cl2 "It says Mrs. Gonzales in the poster."
+    hide cl2 base right
+
+    show mc base left
+    mc "(...)\n(The name... sounds oddly familiar? Wait—)"
+    mc "(FOCUS!)"
+    mc "Uh, that's noted. Anything else I need to know?"
+    hide mc base left
+
+    show cl2 base right
+    cl2 "I just… I don’t want to sound like some stiff template. I want them to hear me in the letter."
+    hide cl2 base right
+
+    show cl2 base right
+    cl2 "All of it, honestly."
+    cl2 "But mostly— I want to secure the interview. If they talk to me, I know I can convince them and prove myself!"
+    hide cl2 base right
+
+    show mc base left
+    mc "Woah, that’s the spirit!\nLet’s make sure your words carry all of that. Hand me your story and I’ll take it from here."
+    hide mc base left
+
+    show cl2 base right
+    cl2 "Thank you. Here’s my background and strengths. Use whatever you need."
+    hide cl2 base right
+
+    show mc base center
+    mc "Perfect."
+    hide mc base center
+
+    "Continue or end the conversation?"
+    menu:
+        "Converse some more":
+            show mc base center
+            mc "Hmm, environmental specialist huh…"
+            mc "For a role like this, they’ll probably want someone who can handle environmental review cycles. Mention your ability with compliance reports too."
+            mc "Oh— and familiarity with GIS or real-time data logging tools could give you an edge so—"
+            hide mc base center
+
+            show cl2 base right
+            cl2 "Woah you seem to know a lot about this position. It’s not even on the job poster..."
+            cl2 "Have you ever worked in this field?"
+            hide cl2 base right
+
+            show mc base center
+            mc "(Oh. Now that you’ve mentioned it… How…)"
+            mc "I… I don’t know. It just kind of… came to me?"
+            mc "(I don’t know how to describe this weird familiarity.\nI don’t even know why I got here)"
+
+            mc "Nevermind. I will get this letter back right away after I finish it."
+            hide mc base center
+        "End it here":
+            mc "This is enough. I will get this letter back right away after I finish it."
+
+    show cl2 base center
+    cl2 "You’re a lifesaver, seriously. I’m already stretched thin just trying to survive. This takes a huge load off my shoulders.\nThank you, [name]"
+    hide cl2 base center
+
+    mc "Another client who needs help. Let's get right into this."
+
+    #1
+    scene bg room
+    play sound "audio/SFX_paper.mp3"
+    menu:
+        mc "Since this is a cover letter, what appropriate greeting should be used…"
+
+        "\"Dear Mrs. XYZ,\"":
+#            $ total_score += 1
+            $ score += 1
+            $ letter_1 = "Dear Mrs. XYZ,"
+        "\"To whom it may concern\"":
+            $ letter_1 = "To whom it may concern: "
+            pass
+    
+   #2
+    play sound "audio/SFX_paper.mp3"
+    menu:
+        mc "Hmm… In the intro, I should mention briefly why my client wants to apply for the job:"
+
+        "\"This job looks super cool and I think I’d vibe well with the team\"":
+            $ letter_2 = "This job looks super cool and I think I’d vibe well with the team. "
+            pass
+        "\"This opportunity deeply aligns with my goals and values\"":
+            $ letter_2 = "This opportunity deeply aligns with my goals and values. "
+#            $ total_score += 1
+            $ score += 1
+
+    #3
+    play sound "audio/SFX_paper.mp3"
+    mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
+    menu:
+        "{cps=20}My experiences (align/aligns) with your organization’s mission.{/cps}"
+
+        "\"align\"":     
+            $ letter_3 = "My experiences align with your organization’s mission. "
+#            $ total_score += 1
+            $ score += 1
+        "\"aligns\"":
+            $ letter_3 = "My experiences aligns with your organization’s mission. "       
+            pass
+
+    #4
+    play sound "audio/SFX_paper.mp3"
+    mc "Then how should I phrase their volunteer works…"
+    menu:
+        "{cps=20}I (lead/led) multiple campaigns promoting composting and sustainability in urban neighborhoods.{/cps}"
+        
+        "\"lead\"":
+            $letter_4 = "I lead multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+            pass
+        "\"led\"":
+            $letter_4 = "I led multiple campaigns promoting composting and sustainability in urban neighborhoods. "
+            $ score += 1
+#            $ total_score += 1
+
+    #5
+    play sound "audio/SFX_paper.mp3"
+    mc "More about their skills and edge… "
+    menu:
+        "{cps=20}I am familiar with local environmental regulations and (had/have) hands-on experience collecting field samples and recording environmental data.{/cps}"
+
+        "\"had\"":
+            $ letter_5 = "I am familiar with local environmental regulations and had hands-on experience collecting field samples and recording environmental data. "
+            pass
+        "\"have\"":
+            $ letter_5 = "I am familiar with local environmental regulations and have hands-on experience collecting field samples and recording environmental data. "
+            $ score += 1
+#            $ total_score += 1
+
+    #6
+    play sound "audio/SFX_paper.mp3"
+    mc "I want to mention how much the client is willing to grow too.."
+    menu:
+        "{cps=20}This role complements my commitment to (continuous/continuos) learning, professional growth, and taking part in impactful, on-the-ground environmental efforts.{/cps}"
+    
+        "\"continuous\"":
+            $ letter_6 = "This role complements my commitment to continuous learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
+            $ score += 1
+#            $ total_score += 1
+        "\"continuos\"":
+            $ letter_6 = "This role complements my commitment to continuos learning, professional growth, and taking part in impactful, on-the-ground environmental efforts. "
+            pass
+
+    #7
+    play sound "audio/SFX_paper.mp3"
+    mc "…Almost done! Let’s wrap this up with intent and clarity."
+    menu:
+        "{cps=20}I hope to contribute meaningfully (to/with) your mission and values.{/cps}"
+
+        "\"to\"":
+            $ letter_7 = "I hope to contribute meaningfully to your mission and values. "
+            $ score += 1
+#            $ total_score += 1
+        "\"with\"":
+            $ letter_7 = "I hope to contribute meaningfully with your mission and values. "
+            pass
+    mc "Done! I hope it gets what Luke wants."
+    
+    # "total count: [total_score]"  to check total score
+    #feedback / scoring system
+    menu:
+        "Show letter":
+            play sound "audio/SFX_click.mp3"
+            call write_letter # shows the full letter
+    if score == 6:
+        $ total_count = 5
+    elif score >= 5:
+        $ total_count = 4
+    elif score >= 3:
+        $ total_count = 3
+    elif score == 2:
+        $ total_count = 2
+    else:
+        $ total_count = 1
+
+    menu:
+        "Send the Letter to Client 2 ":
+            play sound "audio/SFX_click.mp3"
+            show screen feedback_cl2(score)        #using call here para makabalik to this point once it reaches the return statement sa logbook 
+            pause
+            play sound "audio/SFX_click.mp3"
+            hide screen feedback_cl2
+    $star_count +=total_count
+
+    menu:
+        "Reveal Answers":      
+            play sound "audio/SFX_click.mp3"
+            call screen cl2_answers
+    "DONE"
+
+    return
+
