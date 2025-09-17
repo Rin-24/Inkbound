@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 227: 'jump' is not a keyword argument or valid child of the screen statement.
-    jump cl1_fail
-        ^
+File "game/functions.rpy", line 327: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    cl2 "Yeah… I need to start applying for something that pays better, but I’m plenty busy with life as is."
+    ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep 16 23:09:52 2025
+Wed Sep 17 14:58:36 2025

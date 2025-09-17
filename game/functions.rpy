@@ -218,23 +218,25 @@ label client_1:
     menu:
         "Reveal Answers":            
             call screen cl1_answers
+    if score >=5:
+        call cl1_sumakses
+    elif score <= 4:
+        call cl1_fail
     return
 
 screen feedback_cl1(score):
 
     if score == 6:
         add "five cl1.png" at truecenter
-        #jump cl1_fail
     elif score >= 5:
         add "four cl1.png" at truecenter
-        #jump cl1_
     elif score >= 3:
         add "three cl1.png" at truecenter
     elif score == 2:
         add "two cl1.png" at truecenter
     else:
         add "one cl1.png" at truecenter
-"""
+
 label cl1_sumakses:
     show cl1 base center 
     cl1 "Hi, I'm back! Is my letter ready?"
@@ -251,8 +253,45 @@ label cl1_sumakses:
     hide mc base center 
     show cl1 base center 
     cl1 "It's all thanks to you! You convinced me to chase my dreams."
-    hide cl1 base 
-"""
+    hide cl1 base center
+    show mc base center
+    mc "(Why did that feel oddly...fulfilling?)"
+    mc "(Did I feel this surge of emotions before?)"
+    mc "(Chasing one's passion, huh?...I wonder if I had that.)"
+    hide mc base center
+    return
+
+label cl1_fail:
+    show cl1 base center 
+    cl1 "Hi, so umm, they rejected me."
+    cl1 "I guess that letter wasn't enough to convince them."
+    hide cl1 base center 
+    show mc base center 
+    mc "Oh no, I'm so sorry!"
+    hide mc base center 
+    show cl1 base center 
+    cl1 "Oh, don't be! I took it as a sign that this path isn't really for me."
+    cl1 "After some time reflecting, I realize I'm not going to be happy in nursing."
+    cl1 "Like what you said, I want to chase what I enjoy doing."
+    hide cl1 base center 
+    show mc base center 
+    mc "Well, that's nice! But what about your family?"
+    hide mc base center 
+    show cl1 base center 
+    cl1 "I talked to them, and they eventually understood my decision."
+    hide cl1 base center 
+    show mc base center 
+    mc "I'm so happy for you, Madison! Not everyone can chase their passion, you're so lucky."
+    mc "(...Why did I say that?...Anyway)"
+    mc "I wish you the best on your journey!"
+    hide mc base center 
+    show cl1 base center 
+    cl1 "Thank you, really. Without you, I would've been stuck in a path I never wanted." 
+    hide cl1 base center 
+    return
+
+
+
     
 label client_2:
     play sound "audio/SXF_door.mp3"
@@ -278,13 +317,6 @@ label client_2:
 
     show cl2 base right
     cl2 "Uhm.. You see… I’m in my mid-30s.\nI don’t come from money, and my current job barely pays enough to support my family…"
-    hide cl2 base right
-
-    show mc base left
-    mc "That sounds really tough…"
-    hide mc base center
-
-    show cl2 base right
     cl2 "Yeah… I need to start applying for something that pays better, but I’m plenty busy with life as is."
     cl2 "I thought, since you’re a writer, maybe... you could help me write a solid cover letter?"
     hide cl2 base right
@@ -373,10 +405,10 @@ label client_2:
     menu:
         mc "Since this is a cover letter, what appropriate greeting should be used…"
 
-        "\"Dear Mrs. XYZ,\"":
+        "\"Dear Mrs. Gonzales,\"":
 #            $ total_score += 1
             $ score += 1
-            $ letter_1 = "Dear Mrs. XYZ,"
+            $ letter_1 = "Dear Mrs. Gonzales,"
         "\"To whom it may concern\"":
             $ letter_1 = "To whom it may concern: "
             pass
@@ -396,7 +428,7 @@ label client_2:
 
     #3
     play sound "audio/SFX_paper.mp3"
-    mc "Wow… such a long list of experiences, Mx. C1 sure is passionate about this field. So:"
+    mc "Wow… such a long list of experiences, Mr. Luke sure is passionate about this field. So:"
     menu:
         "{cps=20}My experiences (align/aligns) with your organization’s mission.{/cps}"
 
